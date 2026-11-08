@@ -16,6 +16,7 @@ import json
 import hashlib
 import zipfile
 import shutil
+import subprocess
 import urllib.request
 import urllib.parse
 import re
@@ -82,6 +83,79 @@ def get_file_sha256(filepath):
         while chunk := f.read(65536):
             h.update(chunk)
     return h.hexdigest()
+
+def extract_archive(archive_path, dest_dir):
+    """
+    Extracts archives across multiple formats (.zip, .rar, .7z, .tar, etc.)
+    1. In-process zipfile for .zip archives.
+    2. Windows built-in tar.exe (bsdtar/libarchive natively supports .rar, .7z, .tar, .zip).
+    3. External 7-Zip (7z.exe) if installed.
+    4. Python shutil.unpack_archive fallback.
+    """
+    if not os.path.exists(archive_path):
+        raise FileNotFoundError(f"Archive not found: {archive_path}")
+    os.makedirs(dest_dir, exist_ok=True)
+    ext = os.path.splitext(archive_path)[1].lower()
+
+    if ext == ".zip" or zipfile.is_zipfile(archive_path):
+        try:
+            with zipfile.ZipFile(archive_path, "r") as z:
+                z.extractall(dest_dir)
+            return True
+        except Exception:
+            pass
+
+    tar_exe = shutil.which("tar") or r"C:\Windows\System32\tar.exe"
+    if os.path.exists(tar_exe):
+        try:
+            res = subprocess.run(
+                [tar_exe, "-xf", os.path.abspath(archive_path), "-C", os.path.abspath(dest_dir)],
+                capture_output=True, text=True, check=True
+            )
+            return True
+        except Exception:
+            pass
+
+    for candidate in [shutil.which("7z"), r"C:\Program Files\7-Zip\7z.exe", r"C:\Program Files (x86)\7-Zip\7z.exe"]:
+        if candidate and os.path.exists(candidate):
+            try:
+                subprocess.run(
+                    [candidate, "x", "-y", f"-o{dest_dir}", os.path.abspath(archive_path)],
+                    capture_output=True, text=True, check=True
+                )
+                return True
+            except Exception:
+                pass
+
+    try:
+        shutil.unpack_archive(archive_path, dest_dir)
+        return True
+    except Exception as e:
+        raise RuntimeError(
+            f"Failed to extract archive '{os.path.basename(archive_path)}': {e}. "
+            "Supported formats: .zip, .rar, .7z, .tar."
+        )
+
+def find_effective_root(staging_dir):
+    """
+    If the archive contains a single top-level folder wrapping mod content,
+    or contains standard game subfolders (archive, bin, r6, red4ext, mods, engine, tweaks),
+    locate the true root folder for deployment.
+    """
+    known_roots = {"archive", "bin", "r6", "red4ext", "mods", "engine", "tweaks", "data", "nativepc"}
+    top_entries = [os.path.join(staging_dir, e) for e in os.listdir(staging_dir)]
+    top_names = {os.path.basename(e).lower() for e in top_entries}
+    if top_names & known_roots:
+        return staging_dir
+
+    subdirs = [e for e in top_entries if os.path.isdir(e)]
+    if len(subdirs) == 1 and len(top_entries) == 1:
+        nested_entries = {e.lower() for e in os.listdir(subdirs[0])}
+        if nested_entries & known_roots:
+            return subdirs[0]
+        return find_effective_root(subdirs[0])
+
+    return staging_dir
 
 def resolve_game_domain(game_path_or_name):
     """Resolve game domain name from path or common name."""
@@ -437,12 +511,14 @@ def deploy_mod(staging_dir, game_path, mod_name, mod_id=None, version=None, doma
         "files": []
     }
 
+    effective_root = find_effective_root(staging_dir)
+
     # Invariant 1: Gather all files and ensure no core EXE clobber
     to_copy = []
-    for root, dirs, files in os.walk(staging_dir):
+    for root, dirs, files in os.walk(effective_root):
         for f in files:
             src = os.path.join(root, f)
-            rel = os.path.relpath(src, staging_dir)
+            rel = os.path.relpath(src, effective_root)
             dst = os.path.join(game_path, rel)
             
             if os.path.exists(dst) and dst.lower().endswith(".exe"):
@@ -565,13 +641,7 @@ def install_archive(archive_path, game_path, mod_name=None, keep_source=False, m
     os.makedirs(temp_staging, exist_ok=True)
 
     try:
-        ext = os.path.splitext(archive_path)[1].lower()
-        if ext == ".zip":
-            with zipfile.ZipFile(archive_path, "r") as z:
-                z.extractall(temp_staging)
-        else:
-            raise ValueError(f"Archive format '{ext}' requires zip or external 7z tool")
-
+        extract_archive(archive_path, temp_staging)
         deploy_res = deploy_mod(temp_staging, game_path, mod_name, mod_id=mod_id, version=version, domain=domain)
         shutil.rmtree(temp_staging, ignore_errors=True)
 
