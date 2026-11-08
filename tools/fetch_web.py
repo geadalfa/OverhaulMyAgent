@@ -33,20 +33,48 @@ def find_headless_browser():
             return c
     return None
 
-def fetch_with_browser(url, browser_bin, wait_ms=10000):
+def resolve_url(url):
+    try:
+        req = urllib.request.Request(
+            url,
+            headers={
+                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            }
+        )
+        with urllib.request.urlopen(req, timeout=5) as resp:
+            return resp.geturl()
+    except Exception:
+        return url
+
+def fetch_with_browser(url, browser_bin, wait_ms=5000):
+    final_url = resolve_url(url)
     cmd = [
         browser_bin,
-        "--headless",
+        "--headless=new",
+        "--disable-gpu",
         f"--virtual-time-budget={wait_ms}",
         "--dump-dom",
-        url
+        final_url
     ]
     try:
-        res = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=25, check=True)
+        res = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=20, check=True)
         return res.stdout.decode("utf-8", errors="ignore")
     except Exception as e:
-        sys.stderr.write(f"Browser headless fetch error: {e}\n")
-        return None
+        # Fallback to legacy headless
+        try:
+            legacy_cmd = [
+                browser_bin,
+                "--headless",
+                "--disable-gpu",
+                f"--virtual-time-budget={wait_ms}",
+                "--dump-dom",
+                final_url
+            ]
+            res = subprocess.run(legacy_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=15, check=True)
+            return res.stdout.decode("utf-8", errors="ignore")
+        except Exception as e2:
+            sys.stderr.write(f"Browser headless fetch error: {e2}\n")
+            return None
 
 def fetch_static(url):
     req = urllib.request.Request(
