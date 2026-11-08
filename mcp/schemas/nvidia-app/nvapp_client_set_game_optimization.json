@@ -1,1 +1,37 @@
-{"name":"nvapp_client_set_game_optimization","description":"Apply a game optimization preset or restore defaults for a supported game. The AC power profile is used when powerSource is omitted.","parameters":{"properties":{"game":{"description":"Exact game or application name returned by nvapp_client_get_applications.","minLength":1,"type":"string"},"powerSource":{"description":"Optional power source whose OPS profile is changed. Defaults to AC when omitted. MCP Battery maps to backend DC. This value of 'Battery' for this setting is only applicable when battery boost is supported on the system.","enum":["AC","Battery"],"type":"string"},"preset":{"description":"Preset to apply: Performance (frame rate), Balanced (slider midpoint), Recommended (NVIDIA per-game recommendation), Quality (image quality), or Revert (restore defaults for the selected power profile).","enum":["Balanced","Performance","Recommended","Quality","Revert"],"type":"string"}},"required":["game","preset"],"type":"object"}}
+{
+  "name": "nvapp_client_set_game_optimization",
+  "description": "Apply a game optimization preset or restore defaults for a supported game. The AC power profile is used when powerSource is omitted.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "game": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Exact game or application name returned by nvapp_client_get_applications."
+      },
+      "preset": {
+        "type": "string",
+        "enum": [
+          "Balanced",
+          "Performance",
+          "Recommended",
+          "Quality",
+          "Revert"
+        ],
+        "description": "Preset to apply: Performance (frame rate), Balanced (slider midpoint), Recommended (NVIDIA per-game recommendation), Quality (image quality), or Revert (restore defaults for the selected power profile)."
+      },
+      "powerSource": {
+        "type": "string",
+        "enum": [
+          "AC",
+          "Battery"
+        ],
+        "description": "Optional power source whose OPS profile is changed. Defaults to AC when omitted. MCP Battery maps to backend DC. This value of 'Battery' for this setting is only applicable when battery boost is supported on the system."
+      }
+    },
+    "required": [
+      "game",
+      "preset"
+    ]
+  }
+}

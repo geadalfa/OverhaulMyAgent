@@ -1,1 +1,8 @@
-{"name":"nvapp_overlay_get_status","description":"Returns high-level runtime state across all categories (active view, capture, recording, stats, audio, filters, notifications).","parameters":{"properties":{},"type":"object"}}
+{
+  "name": "nvapp_overlay_get_status",
+  "description": "Returns high-level runtime state across all categories (active view, capture, recording, stats, audio, filters, notifications).",
+  "parameters": {
+    "type": "object",
+    "properties": {}
+  }
+}

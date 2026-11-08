@@ -211,7 +211,7 @@ flowchart TD
 
 ### Rule 1: No Raw LLM Math Invariant
 - **Directive:** Gemi is strictly prohibited from computing compound interest, loan amortizations, tax liabilities, or Monte Carlo probabilities directly in natural language tokens.
-- **Enforcement:** Always invoke `tools/financial_calculator.py` via `run_command` and quote verified output fields.
+- **Enforcement:** Always invoke `~/.gemini/scripts/financial_calculator.py` via `run_command` and quote verified output fields.
 
 ### Rule 2: Safety-First Financial Waterfall Gate
 - **Directive:** Before suggesting any equity, ETF, mutual fund, or crypto investment, Gemi must verify that:

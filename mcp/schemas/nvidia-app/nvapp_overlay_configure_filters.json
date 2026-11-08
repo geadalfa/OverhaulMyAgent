@@ -1,1 +1,25 @@
-{"name":"nvapp_overlay_configure_filters","description":"Enable or disable the RTX Dynamic Vibrance (DVC) filter.","parameters":{"additionalProperties":false,"properties":{"enable":{"description":"true to enable, false to disable","type":"boolean"},"filter":{"description":"The game filter to configure","enum":["rtx_dvc"],"type":"string"}},"required":["filter","enable"],"type":"object"}}
+{
+  "name": "nvapp_overlay_configure_filters",
+  "description": "Enable or disable the RTX Dynamic Vibrance (DVC) filter.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "filter": {
+        "type": "string",
+        "enum": [
+          "rtx_dvc"
+        ],
+        "description": "The game filter to configure"
+      },
+      "enable": {
+        "type": "boolean",
+        "description": "true to enable, false to disable"
+      }
+    },
+    "required": [
+      "filter",
+      "enable"
+    ],
+    "additionalProperties": false
+  }
+}

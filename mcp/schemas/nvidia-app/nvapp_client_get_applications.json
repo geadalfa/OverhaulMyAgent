@@ -1,1 +1,29 @@
-{"name":"nvapp_client_get_applications","description":"List NVIDIA app-discovered games and applications with OPS details. Optional inputs filter results; omit all to return every app. Returned game names identify apps in game-scoped tools.","parameters":{"dependentRequired":{"preset":["game"]},"properties":{"game":{"description":"Optional exact game or application name previously returned by this tool. Omit to enumerate all discovered applications.","minLength":1,"type":"string"},"preset":{"description":"Optional preset to validate. Requires game.","enum":["Balanced","Performance","Recommended","Quality"],"type":"string"}},"type":"object"}}
+{
+  "name": "nvapp_client_get_applications",
+  "description": "List NVIDIA app-discovered games and applications with OPS details. Optional inputs filter results; omit all to return every app. Returned game names identify apps in game-scoped tools.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "game": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Optional exact game or application name previously returned by this tool. Omit to enumerate all discovered applications."
+      },
+      "preset": {
+        "type": "string",
+        "enum": [
+          "Balanced",
+          "Performance",
+          "Recommended",
+          "Quality"
+        ],
+        "description": "Optional preset to validate. Requires game."
+      }
+    },
+    "dependentRequired": {
+      "preset": [
+        "game"
+      ]
+    }
+  }
+}

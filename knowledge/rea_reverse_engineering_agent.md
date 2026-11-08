@@ -9,7 +9,7 @@
   - Executable: `~\AppData\Roaming\npm\rea.cmd` (Node.js runtime: `C:\Program Files\nodejs\node.exe`).
   - MCP Entry Point: `~\AppData\Roaming\npm\node_modules\rea-agents\scripts\rea.mjs mcp`.
   - MCP Registration: Registered as `rea` in `~/.gemini/config/mcp_config.json`.
-  - Skill Directory: `skills/reverse-engineer-anything\SKILL.md` (with deep guides in `references/`).
+  - Skill Directory: `~/.gemini/config/skills/reverse-engineer-anything\SKILL.md` (with deep guides in `references/`).
   - Diagnostics: Validated via `rea mcp doctor` (170 MCP tools, 6 prompt workflows, MCP protocol version 2025-11-25).
   - Windows Execution Invariant: PowerShell execution policies block `rea.ps1`. When executing CLI commands in scripts/terminals, invoke via `cmd /c rea <args>` or `node <script_path> <args>`.
 

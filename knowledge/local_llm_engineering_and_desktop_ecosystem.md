@@ -79,4 +79,4 @@ AnythingLLM Desktop supports **Model Context Protocol (MCP)** to equip `@agent` 
 - **Arbitrary-Rank Ablation (ARA):** Uses rank ~50 LoRA adapters optimized via L-BFGS with dual $k$-NN Euclidean distance loss.
 - **Magnitude-Preserving Orthogonal Ablation (MPOA):** Renormalizes row magnitudes of modified matrices to match original weights, preventing intelligence degradation.
 - **Anti-Slop Weight Engineering:** Permanently suppresses AI clichés (*tapestry, ethereal, celestial, beacon, kaleidoscopic*) at the probability weight level via `config.noslop.toml`.
-- Technical details documented in: [`knowledge/heretic_llm_abliteration_and_steering.md`](file:///knowledge/heretic_llm_abliteration_and_steering.md).
+- Technical details documented in: [`~/.gemini/knowledge/heretic_llm_abliteration_and_steering.md`](file:///~/.gemini/knowledge/heretic_llm_abliteration_and_steering.md).

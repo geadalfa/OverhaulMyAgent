@@ -1,1 +1,9 @@
-{"name":"nvapp_overlay_get_current_game_info","description":"Returns whether a game is currently running, with its name, process ID, and fullscreen state when available.","parameters":{"additionalProperties":false,"properties":{},"type":"object"}}
+{
+  "name": "nvapp_overlay_get_current_game_info",
+  "description": "Returns whether a game is currently running, with its name, process ID, and fullscreen state when available.",
+  "parameters": {
+    "type": "object",
+    "properties": {},
+    "additionalProperties": false
+  }
+}

@@ -292,7 +292,7 @@ def markdown_to_docx(md_content: str, output_docx_path: str) -> None:
 ## 7. Windows Desktop Application Blueprint (`DocShield-Converter`)
 
 For the User's personal desktop environment, the recommended implementation stack is:
-- **GUI Framework:** PyQt6 / PySide6 with dark mode Zinc design tokens (mirroring `knowledge/ui_ux_anti_slop_design_engineering.md`).
+- **GUI Framework:** PyQt6 / PySide6 with dark mode Zinc design tokens (mirroring `~/.gemini/knowledge/ui_ux_anti_slop_design_engineering.md`).
 - **Processing Engine:** Python 3.11 with `pikepdf`, `pymupdf`, `opencv-python-headless`, and `python-docx`.
 - **Local Fallback OCR:** PaddleOCR PP-OCRv5 for offline lightweight parsing; optional API toggle for Gemini 2.5 Flash / Mistral OCR for heavy watermarked scans.
 - **Data Boundary:** Strictly runs locally on `localhost` with zero external analytics, zero cloud uploads (unless user enables AI Vision API key), and automatic temporary raster cache wipe on exit.

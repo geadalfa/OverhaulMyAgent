@@ -1,1 +1,27 @@
-{"name":"nvapp_overlay_capture","description":"Control capture features: recording, instant replay, screenshots, and highlights.","parameters":{"properties":{"action":{"description":"The capture action to perform","enum":["toggle_recording","toggle_instant_replay","save_instant_replay","capture_screenshot","toggle_highlights"],"type":"string"},"enable":{"description":"Required for toggle_* actions (true=enable, false=disable). Do not send for save_instant_replay or capture_screenshot.","type":"boolean"}},"required":["action"],"type":"object"}}
+{
+  "name": "nvapp_overlay_capture",
+  "description": "Control capture features: recording, instant replay, screenshots, and highlights.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "action": {
+        "type": "string",
+        "enum": [
+          "toggle_recording",
+          "toggle_instant_replay",
+          "save_instant_replay",
+          "capture_screenshot",
+          "toggle_highlights"
+        ],
+        "description": "The capture action to perform"
+      },
+      "enable": {
+        "type": "boolean",
+        "description": "Required for toggle_* actions (true=enable, false=disable). Do not send for save_instant_replay or capture_screenshot."
+      }
+    },
+    "required": [
+      "action"
+    ]
+  }
+}

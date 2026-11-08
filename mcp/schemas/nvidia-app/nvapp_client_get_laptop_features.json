@@ -1,1 +1,15 @@
-{"name":"nvapp_client_get_laptop_features","description":"Get Battery Boost and Whisper Mode settings globally or for a game. This setting is applicable only for notebooks.","parameters":{"additionalProperties":false,"properties":{"game":{"description":"Game name from nvapp_client_get_applications. Use 'global' or 'base' for global settings; defaults to global.","minLength":1,"type":"string"}},"type":"object"}}
+{
+  "name": "nvapp_client_get_laptop_features",
+  "description": "Get Battery Boost and Whisper Mode settings globally or for a game. This setting is applicable only for notebooks.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "game": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Game name from nvapp_client_get_applications. Use 'global' or 'base' for global settings; defaults to global."
+      }
+    },
+    "additionalProperties": false
+  }
+}

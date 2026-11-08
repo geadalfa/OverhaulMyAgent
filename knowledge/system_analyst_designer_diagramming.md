@@ -400,33 +400,33 @@ ocr path/to/diagram.png
 
 ## 11. Production Tooling & Automation (`confluence_drawio_tool.py`)
 
-A centralized Python automation tool is located at `tools/confluence_drawio_tool.py`.
+A centralized Python automation tool is located at `~/.gemini/scripts/confluence_drawio_tool.py`.
 
 ### 11.1. CLI Commands Reference
 
 ```bash
 # 1. Update Macro Revision Directly (Fixes 'Stuck Revision' Trap)
-python tools/confluence_drawio_tool.py set-revision \
+python ~/.gemini/scripts/confluence_drawio_tool.py set-revision \
   --page-id 123456789 \
   --name architecture-diagram-partner-vendor-partner-ca \
   --revision 2
 
 # 2. Upload Dual Attachments (Auto-handles new vs existing update)
-python tools/confluence_drawio_tool.py upload \
+python ~/.gemini/scripts/confluence_drawio_tool.py upload \
   --page-id 123456789 \
   --xml ./arch.xml \
   --png ./arch.png \
   --name architecture-diagram-partner-vendor-partner-ca
 
 # 3. Inject Macro (Activity or Arch)
-python tools/confluence_drawio_tool.py inject \
+python ~/.gemini/scripts/confluence_drawio_tool.py inject \
   --page-id 123456789 \
   --name architecture-diagram-partner-vendor-partner-ca \
   --type arch \
   --revision 2
 
 # 4. One-Shot Publish (Upload + Inject + Verify)
-python tools/confluence_drawio_tool.py publish \
+python ~/.gemini/scripts/confluence_drawio_tool.py publish \
   --page-id 123456789 \
   --xml ./activity.xml \
   --png ./activity.png \
@@ -434,7 +434,7 @@ python tools/confluence_drawio_tool.py publish \
   --type activity
 
 # 5. Deep Verification of Rendered View HTML
-python tools/confluence_drawio_tool.py verify \
+python ~/.gemini/scripts/confluence_drawio_tool.py verify \
   --page-id 123456789
 ```
 

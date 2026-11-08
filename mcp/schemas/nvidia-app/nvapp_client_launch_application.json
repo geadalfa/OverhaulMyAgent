@@ -1,1 +1,17 @@
-{"name":"nvapp_client_launch_application","description":"Launch a game or application returned by nvapp_client_get_applications.","parameters":{"properties":{"game":{"description":"Exact game or application name returned by nvapp_client_get_applications.","minLength":1,"type":"string"}},"required":["game"],"type":"object"}}
+{
+  "name": "nvapp_client_launch_application",
+  "description": "Launch a game or application returned by nvapp_client_get_applications.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "game": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Exact game or application name returned by nvapp_client_get_applications."
+      }
+    },
+    "required": [
+      "game"
+    ]
+  }
+}

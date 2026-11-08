@@ -1,1 +1,17 @@
-{"name":"nvapp_overlay_configure_stats","description":"Show or hide the performance statistics overlay.","parameters":{"additionalProperties":false,"properties":{"enable":{"description":"Show or hide the stats overlay","type":"boolean"}},"required":["enable"],"type":"object"}}
+{
+  "name": "nvapp_overlay_configure_stats",
+  "description": "Show or hide the performance statistics overlay.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "enable": {
+        "type": "boolean",
+        "description": "Show or hide the stats overlay"
+      }
+    },
+    "required": [
+      "enable"
+    ],
+    "additionalProperties": false
+  }
+}

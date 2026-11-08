@@ -1,1 +1,180 @@
-{"name":"nvapp_client_set_laptop_feature","description":"Set Battery Boost or Whisper Mode globally or for a game. This setting is applicable only for notebooks.","parameters":{"additionalProperties":false,"allOf":[{"else":{"properties":{"batteryBoost":{"required":["useGlobal"]},"whisperMode":{"not":{"required":["fanVolume"]},"required":["useGlobal"]}}},"if":{"anyOf":[{"not":{"required":["game"]}},{"properties":{"game":{"enum":["global","base"]}},"required":["game"]}]},"then":{"properties":{"batteryBoost":{"not":{"required":["useGlobal"]}},"whisperMode":{"not":{"required":["useGlobal"]}}}}}],"oneOf":[{"required":["batteryBoost"]},{"required":["whisperMode"]}],"properties":{"batteryBoost":{"additionalProperties":false,"else":{"required":["enabled"]},"if":{"properties":{"useGlobal":{"const":true}},"required":["useGlobal"]},"properties":{"enabled":{"type":"boolean"},"useGlobal":{"description":"Whether the application should inherit the global setting. Valid only for application scope.","type":"boolean"}},"then":{"not":{"required":["enabled"]}},"type":"object"},"game":{"description":"Game name from nvapp_client_get_applications. Use 'global' or 'base' for global settings; defaults to global.","minLength":1,"type":"string"},"whisperMode":{"additionalProperties":false,"else":{"required":["enabled"]},"if":{"properties":{"useGlobal":{"const":true}},"required":["useGlobal"]},"properties":{"enabled":{"type":"boolean"},"fanVolume":{"description":"Global Whisper Mode acoustic level.","enum":["Balanced","Quiet","Quieter"],"type":"string"},"useGlobal":{"description":"Whether the application should inherit the global setting. Valid only for application scope.","type":"boolean"}},"then":{"not":{"anyOf":[{"required":["enabled"]},{"required":["fanVolume"]}]}},"type":"object"}},"type":"object"}}
+{
+  "name": "nvapp_client_set_laptop_feature",
+  "description": "Set Battery Boost or Whisper Mode globally or for a game. This setting is applicable only for notebooks.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "game": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Game name from nvapp_client_get_applications. Use 'global' or 'base' for global settings; defaults to global."
+      },
+      "batteryBoost": {
+        "type": "object",
+        "properties": {
+          "useGlobal": {
+            "type": "boolean",
+            "description": "Whether the application should inherit the global setting. Valid only for application scope."
+          },
+          "enabled": {
+            "type": "boolean"
+          }
+        },
+        "if": {
+          "properties": {
+            "useGlobal": {
+              "const": true
+            }
+          },
+          "required": [
+            "useGlobal"
+          ]
+        },
+        "then": {
+          "not": {
+            "required": [
+              "enabled"
+            ]
+          }
+        },
+        "else": {
+          "required": [
+            "enabled"
+          ]
+        },
+        "additionalProperties": false
+      },
+      "whisperMode": {
+        "type": "object",
+        "properties": {
+          "useGlobal": {
+            "type": "boolean",
+            "description": "Whether the application should inherit the global setting. Valid only for application scope."
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "fanVolume": {
+            "type": "string",
+            "enum": [
+              "Balanced",
+              "Quiet",
+              "Quieter"
+            ],
+            "description": "Global Whisper Mode acoustic level."
+          }
+        },
+        "if": {
+          "properties": {
+            "useGlobal": {
+              "const": true
+            }
+          },
+          "required": [
+            "useGlobal"
+          ]
+        },
+        "then": {
+          "not": {
+            "anyOf": [
+              {
+                "required": [
+                  "enabled"
+                ]
+              },
+              {
+                "required": [
+                  "fanVolume"
+                ]
+              }
+            ]
+          }
+        },
+        "else": {
+          "required": [
+            "enabled"
+          ]
+        },
+        "additionalProperties": false
+      }
+    },
+    "oneOf": [
+      {
+        "required": [
+          "batteryBoost"
+        ]
+      },
+      {
+        "required": [
+          "whisperMode"
+        ]
+      }
+    ],
+    "allOf": [
+      {
+        "if": {
+          "anyOf": [
+            {
+              "not": {
+                "required": [
+                  "game"
+                ]
+              }
+            },
+            {
+              "properties": {
+                "game": {
+                  "enum": [
+                    "global",
+                    "base"
+                  ]
+                }
+              },
+              "required": [
+                "game"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "properties": {
+            "batteryBoost": {
+              "not": {
+                "required": [
+                  "useGlobal"
+                ]
+              }
+            },
+            "whisperMode": {
+              "not": {
+                "required": [
+                  "useGlobal"
+                ]
+              }
+            }
+          }
+        },
+        "else": {
+          "properties": {
+            "batteryBoost": {
+              "required": [
+                "useGlobal"
+              ]
+            },
+            "whisperMode": {
+              "required": [
+                "useGlobal"
+              ],
+              "not": {
+                "required": [
+                  "fanVolume"
+                ]
+              }
+            }
+          }
+        }
+      }
+    ],
+    "additionalProperties": false
+  }
+}
