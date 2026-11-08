@@ -1,0 +1,1 @@
+{"name":"memory_get","description":"Read one full memory by id.","parameters":{"properties":{"id":{"type":"string"}},"required":["id"],"type":"object"}}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://kiro.dev/schemas/v1/agent.json",
+  "name": "OverhaulMyAgent",
+  "version": "1.0.0",
+  "description": "Deterministic, Anti-Vibe-Coding, and Token-Efficient AI Agent Operating System",
+  "systemPrompt": "core/CORE_SYSTEM_PROMPT.md",
+  "router": "core/ROUTER.md",
+  "skillsDirectory": "skills",
+  "toolsDirectory": "tools",
+  "qualityGates": "core/FIVE_QUALITY_GATES.md"
+}

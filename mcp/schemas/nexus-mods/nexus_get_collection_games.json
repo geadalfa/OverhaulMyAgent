@@ -1,0 +1,1 @@
+{"name":"nexus_get_collection_games","description":"List games that support collections [v2 - no v1 quota].\n\nReturns:\n    JSON list of {id, name, domainName, modCount, collectionCount}.\n","parameters":{"properties":{},"title":"nexus_get_collection_gamesArguments","type":"object"}}

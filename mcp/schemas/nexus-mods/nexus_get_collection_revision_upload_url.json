@@ -1,0 +1,1 @@
+{"name":"nexus_get_collection_revision_upload_url","description":"Request a presigned URL for uploading a collection revision bundle [v2 - no v1 quota].\n\nReturns:\n    JSON {url, uuid}.\n","parameters":{"properties":{},"title":"nexus_get_collection_revision_upload_urlArguments","type":"object"}}

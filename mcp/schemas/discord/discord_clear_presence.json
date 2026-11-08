@@ -1,0 +1,1 @@
+{"name":"discord_clear_presence","description":"Clear your Discord presence/activity","parameters":{"$schema":"http://json-schema.org/draft-07/schema#","properties":{},"type":"object"}}

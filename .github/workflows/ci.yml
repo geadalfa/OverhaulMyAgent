@@ -1,0 +1,50 @@
+name: OverhaulMyAgent Verification & Security Linter
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run Red-Team PII & Data Leakage Scanner
+        run: |
+          python -c "
+          import os, re, sys, base64
+          # Base64 encoded sensitive patterns to avoid literal source hits
+          b64_patterns = [
+              'XGJhbGZhXGI=', 'XGJnZWFkYWxmYVxi', 'XGJicmltb1xi', 'XGJxaXRhXGI=',
+              'YzpcXHVzZXJzXFxhbGZh', 'L3VzZXJzL2JyaW1v', 'Z2xvYmFscHJvdGVjdA==',
+              'ZXJhbmdlbA==', 'NDA3MCBzdXBlcg==', 'ODcwMGY=', 'YmFuayByYWt5YXQgaW5kb25lc2lh',
+              'MTcyXC4oMVs2LTldfDJcZHwzWzAxXSlcLlxkK1wuXGR+', 'MTkwXC5cZCtcLlxkK1wuXGR+'
+          ]
+          blacklist = [base64.b64decode(b).decode('utf-8') for b in b64_patterns]
+          violations = []
+          for root, dirs, files in os.walk('.'):
+              if '.git' in dirs: dirs.remove('.git')
+              for f in files:
+                  if f == 'ci.yml': continue
+                  fp = os.path.join(root, f)
+                  with open(fp, 'r', encoding='utf-8', errors='ignore') as fh:
+                      content = fh.read()
+                  for pat in blacklist:
+                      if re.search(pat, content, re.IGNORECASE):
+                          violations.append((fp, pat))
+          if violations:
+              print(f'SECURITY VIOLATION DETECTED ({len(violations)} hits):')
+              for fp, pat in violations[:10]:
+                  print(f'  {fp}: matched {pat}')
+              sys.exit(1)
+          else:
+              print('SECURITY AUDIT PASSED: 0 PII or sensitive patterns found.')
+          "

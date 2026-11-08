@@ -1,0 +1,1 @@
+{"name":"confluence_delete_page","description":"Delete an existing Confluence page.","parameters":{"additionalProperties":false,"properties":{"page_id":{"description":"The ID of the page to delete","type":"string"}},"required":["page_id"],"type":"object"}}

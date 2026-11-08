@@ -1,0 +1,1 @@
+{"name":"nexus_get_tag_categories","description":"List all tag categories with their tags [v2 - no v1 quota].\n\nReturns:\n    JSON list of {id, name, tags: [{id, name, adult}]}.\n","parameters":{"properties":{},"title":"nexus_get_tag_categoriesArguments","type":"object"}}

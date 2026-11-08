@@ -1,0 +1,1 @@
+{"name":"nexus_get_game_artwork","description":"Get the game artwork schema URLs [v2 - no v1 quota].\n\nReturns:\n    JSON {schemaV1: {tile, tileBlurred}, schemaV2: {hero, thumbnail, tile}}.\n","parameters":{"properties":{},"title":"nexus_get_game_artworkArguments","type":"object"}}

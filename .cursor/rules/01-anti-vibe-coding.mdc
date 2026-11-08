@@ -1,0 +1,12 @@
+---
+description: Deterministic Software Engineering & Anti-Vibe-Coding Invariants
+globs: *
+alwaysApply: true
+---
+
+# Anti-Vibe-Coding Protocol
+
+1. **Stop & Clarify:** If rules, schema contracts, or security boundaries are ambiguous, present 2-3 concrete options.
+2. **Evidence Over Assumptions:** Rely strictly on verified codebase symbols.
+3. **Minimal Safe Change:** Write the smallest correct mutation that protects invariants.
+4. **Never Guess APIs:** Inspect dependency manifests before importing packages.

@@ -1,0 +1,1 @@
+{"name":"get_brand_profile","description":"Read a local Raven creative brand profile by ID.","parameters":{"$schema":"http://json-schema.org/draft-07/schema#","additionalProperties":false,"properties":{"id":{"description":"Brand profile ID.","type":"string"}},"required":["id"],"type":"object"}}

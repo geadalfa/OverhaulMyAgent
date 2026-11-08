@@ -1,0 +1,1 @@
+{"name":"memory_delete","description":"Delete a memory. Only when the user asks or the fact is proven wrong.","parameters":{"properties":{"id":{"type":"string"}},"required":["id"],"type":"object"}}

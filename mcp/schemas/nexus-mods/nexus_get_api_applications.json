@@ -1,0 +1,1 @@
+{"name":"nexus_get_api_applications","description":"List the API applications registered to your account, including API keys [v2 - no v1 quota]. Returns your account's own data only.\n\nReturns:\n    JSON list of {active, id, key, name, slug, summary}.\n","parameters":{"properties":{},"title":"nexus_get_api_applicationsArguments","type":"object"}}

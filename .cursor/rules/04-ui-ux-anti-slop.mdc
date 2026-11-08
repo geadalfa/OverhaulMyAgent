@@ -1,0 +1,12 @@
+---
+description: High-Taste UI/UX Design & Anti-AI-Slop Engineering
+globs: **/*.{tsx,jsx,ts,js,vue,svelte,html,css}
+alwaysApply: false
+---
+
+# UI/UX Anti-Slop Guidelines
+
+1. **Zero AI Slop:** No purple/indigo gradient text over dark gray cards.
+2. **Contrast & Tokens:** Use OKLCH / Zinc neutral palettes with accessible WCAG contrast.
+3. **Platform-Native:** Respect Desktop, Web, and Mobile viewport ergonomics.
+4. **Design Contract:** Adhere to `skills/anti-slop-ui-design/SKILL.md`.

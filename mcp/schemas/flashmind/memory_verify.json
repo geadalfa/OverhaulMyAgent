@@ -1,0 +1,1 @@
+{"name":"memory_verify","description":"Check a claim against memory before stating it as fact. Returns candidate memories and a status: SUPPORTED_CANDIDATES (compare the content yourself) or NO_EVIDENCE.","parameters":{"properties":{"claim":{"type":"string"}},"required":["claim"],"type":"object"}}

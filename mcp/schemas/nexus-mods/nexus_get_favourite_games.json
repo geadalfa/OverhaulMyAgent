@@ -1,0 +1,1 @@
+{"name":"nexus_get_favourite_games","description":"List the authenticated user's favourite games [v2 - no v1 quota].\n\nReturns:\n    JSON array of games: {id, name, domainName, genre, modCount,\n    collectionCount}.\n","parameters":{"properties":{},"title":"nexus_get_favourite_gamesArguments","type":"object"}}

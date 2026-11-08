@@ -1,0 +1,1 @@
+{"name":"list_repositories","description":"List all repositories in a Bitbucket project","parameters":{"properties":{"project":{"description":"Bitbucket project key","type":"string"}},"required":["project"],"type":"object"}}

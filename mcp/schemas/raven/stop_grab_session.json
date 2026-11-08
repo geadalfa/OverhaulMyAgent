@@ -1,0 +1,1 @@
+{"name":"stop_grab_session","description":"Stop the current grab bridge and clear its queued selections.","parameters":{"$schema":"http://json-schema.org/draft-07/schema#","properties":{},"type":"object"}}

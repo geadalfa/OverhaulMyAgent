@@ -1,0 +1,1 @@
+{"name":"jira_get_all_projects","description":"Get all Jira projects accessible to the current user.","parameters":{"additionalProperties":false,"properties":{"include_archived":{"default":false,"description":"Whether to include archived projects in the results","type":"boolean"}},"type":"object"}}

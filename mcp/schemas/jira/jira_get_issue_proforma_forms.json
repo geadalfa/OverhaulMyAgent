@@ -1,0 +1,1 @@
+{"name":"jira_get_issue_proforma_forms","description":"Get all ProForma forms associated with a Jira issue.\n\nUses the new Jira Forms REST API. Form IDs are returned as UUIDs.","parameters":{"additionalProperties":false,"properties":{"issue_key":{"description":"Jira issue key (e.g., 'PROJ-123')","type":"string"}},"required":["issue_key"],"type":"object"}}

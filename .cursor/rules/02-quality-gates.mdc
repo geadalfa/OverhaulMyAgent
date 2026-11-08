@@ -1,0 +1,13 @@
+---
+description: 5 Quality Gates for Multi-File Architecture & Features
+globs: *
+alwaysApply: false
+---
+
+# 5 Quality Gates
+
+- **Gate 1:** Blast Radius Discovery (Direct, Indirect, Operational).
+- **Gate 2:** Microservice Boundaries & Distributed Resilience (Outbox, Idempotency, Timeouts).
+- **Gate 3:** Database Architecture & Concurrency (Zero N+1, Index order, Short TXs, Pessimistic/Optimistic locks).
+- **Gate 4:** Atomic Bottom-Up Execution (Entities -> Repos -> Services -> Controllers -> Tests).
+- **Gate 5:** Adversarial Self-Review (Reflexion loop, >=98% confidence).

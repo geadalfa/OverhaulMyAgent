@@ -1,0 +1,1 @@
+{"name":"jira_remove_issue_link","description":"Remove a link between two Jira issues.","parameters":{"additionalProperties":false,"properties":{"link_id":{"description":"The ID of the link to remove","type":"string"}},"required":["link_id"],"type":"object"}}

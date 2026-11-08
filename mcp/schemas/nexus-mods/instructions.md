@@ -1,0 +1,8 @@
+Nexus Mods API tools (v1 REST + v2 GraphQL).
+- Most tools take `domain_name`: the lowercase game slug (e.g. 'skyrimspecialedition'), NOT the display name. Resolve unknown game names with nexus_resolve_domain.
+- Quota strategy: v1 REST allows 2000 req/hour and 20000/day; every v1 response carries an `_rl` snapshot of the remaining quota. v2 GraphQL tools run on a separate pool and do NOT consume v1 quota - prefer v2 tools (nexus_search_mods, nexus_get_mod_v2, nexus_get_mods_batch) for searches and public data. Repeated identical reads are served from a built-in TTL cache and cost nothing.
+- Auth: NEXUS_API_KEY covers all public reads and most mutations. Some user-context mutations require OAuth (nexus_oauth_login then nexus_oauth_exchange) - e.g. nexus_update_mod_direct_download, nexus_restore_comment, nexus_get_transactions. Tool descriptions flag this where it applies.
+- Pagination: list tools return {totalCount, _returned, nodes}; paginate with offset += _returned while offset < totalCount. Page size may be silently capped by the server - always check _returned.
+- Responses are compact JSON; parse with a JSON parser (do not regex text). Tool failures come back as 'Error: ...' strings, not exceptions - read the message and adjust inputs.
+- Tools carry readOnly/destructive/idempotent annotations; treat destructive tools as user-confirm-worthy.
+- Web scraping (nexus_scrape_page, nexus_scrape_mod_page, nexus_scrape_mod_posts) reads public nexusmods.com pages via plain HTTPS - no API key, no quota, and only https://www.nexusmods.com/* URLs are accepted (SSRF guard).

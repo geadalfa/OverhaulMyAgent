@@ -1,0 +1,1 @@
+{"name":"nexus_get_tag_by_id","description":"Get a single tag by its ID [v2 - no v1 quota].\n\nReturns:\n    JSON {id, name, adult, global, taggablesCount, category, games}.\n","parameters":{"properties":{"tag_id":{"description":"Tag ID.","minimum":1,"title":"Tag Id","type":"integer"}},"required":["tag_id"],"title":"nexus_get_tag_by_idArguments","type":"object"}}

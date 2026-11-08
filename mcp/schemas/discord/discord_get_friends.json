@@ -1,0 +1,1 @@
+{"name":"discord_get_friends","description":"Get list of friends for the current user","parameters":{"$schema":"http://json-schema.org/draft-07/schema#","properties":{},"type":"object"}}

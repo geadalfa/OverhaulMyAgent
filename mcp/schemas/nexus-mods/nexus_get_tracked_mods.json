@@ -1,0 +1,1 @@
+{"name":"nexus_get_tracked_mods","description":"List the mods the authenticated account is tracking [v1 - uses v1 REST quota].\n\nReturns:\n    JSON array of {mod_id, domain_name}.\n","parameters":{"properties":{},"title":"nexus_get_tracked_modsArguments","type":"object"}}

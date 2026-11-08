@@ -1,0 +1,1 @@
+{"name":"jira_move_issues_to_backlog","description":"Move issues to the backlog, removing them from any sprint.","parameters":{"additionalProperties":false,"properties":{"issue_keys":{"description":"Comma-separated issue keys (e.g., 'PROJ-1,PROJ-2')","type":"string"}},"required":["issue_keys"],"type":"object"}}

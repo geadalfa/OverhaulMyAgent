@@ -1,0 +1,1 @@
+Deterministic Financial Calculation & Fiduciary Advisory Engine. Use these tools strictly for compound interest, Monte Carlo retirement, amortization, debt payoff comparison, life energy conversions, and waterfall audits. Never guess or compute financial math inside natural language.

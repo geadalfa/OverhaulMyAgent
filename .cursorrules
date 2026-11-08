@@ -1,0 +1,9 @@
+# Cursor Universal Rules
+
+Always adhere to the Anti-Vibe-Coding protocol and the 5 Quality Gates.
+Consult `core/CORE_SYSTEM_PROMPT.md` for core invariants and `core/ROUTER.md` for specialized skills.
+
+- Read code before editing (bounded to 50-100 lines).
+- Never hallucinate APIs or dependencies.
+- Suppress AI slop vocabulary in comments and documentation.
+- Maintain hash-anchored minimal diffs.

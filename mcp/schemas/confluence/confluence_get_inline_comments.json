@@ -1,0 +1,1 @@
+{"name":"confluence_get_inline_comments","description":"Get all inline comments for a Confluence page.","parameters":{"additionalProperties":false,"properties":{"page_id":{"description":"The ID of the page to get inline comments from","type":"string"}},"required":["page_id"],"type":"object"}}

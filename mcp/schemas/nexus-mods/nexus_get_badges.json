@@ -1,0 +1,1 @@
+{"name":"nexus_get_badges","description":"List all badges a mod can earn (e.g. 'Top pick', 'Easy install') via v2 GraphQL [v2 - no v1 quota].\n\nStatic catalog - cache the result.\n\nReturns:\n    JSON {badges: [{id, name, description}]}.\n","parameters":{"properties":{},"title":"nexus_get_badgesArguments","type":"object"}}

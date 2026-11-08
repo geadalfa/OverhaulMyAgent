@@ -1,0 +1,1 @@
+{"name":"jira_get_link_types","description":"Get all available issue link types.","parameters":{"additionalProperties":false,"properties":{"name_filter":{"default":null,"description":"(Optional) Filter link types by name substring (case-insensitive)","type":"string"}},"type":"object"}}

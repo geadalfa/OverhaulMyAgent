@@ -1,0 +1,1 @@
+{"name":"list_templates","description":"List templates and their registered page pathnames from the active grab session. Template permissions and allowedTokens are cooperative advisory metadata: display labels only, not enforced.","parameters":{"$schema":"http://json-schema.org/draft-07/schema#","properties":{},"type":"object"}}

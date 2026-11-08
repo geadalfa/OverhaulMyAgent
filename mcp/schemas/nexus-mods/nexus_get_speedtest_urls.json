@@ -1,0 +1,1 @@
+{"name":"nexus_get_speedtest_urls","description":"Get CDN speedtest URLs for diagnosing slow downloads [v2 - no v1 quota].\n\nHandy when downloads feel slow: test latency/throughput against each\nmirror and compare.\n\nReturns:\n    JSON array of {title, description, location, tag}.\n","parameters":{"properties":{},"title":"nexus_get_speedtest_urlsArguments","type":"object"}}

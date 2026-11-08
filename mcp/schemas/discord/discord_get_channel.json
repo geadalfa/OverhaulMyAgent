@@ -1,0 +1,1 @@
+{"name":"discord_get_channel","description":"Get information about a Discord channel","parameters":{"$schema":"http://json-schema.org/draft-07/schema#","additionalProperties":false,"properties":{"channelId":{"description":"The Discord channel ID","type":"string"}},"required":["channelId"],"type":"object"}}

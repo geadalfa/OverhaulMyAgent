@@ -1,0 +1,1 @@
+{"name":"jira_add_issues_to_sprint","description":"Add issues to a Jira sprint.","parameters":{"additionalProperties":false,"properties":{"issue_keys":{"description":"Comma-separated issue keys (e.g., 'PROJ-1,PROJ-2')","type":"string"},"sprint_id":{"description":"Sprint ID to add issues to","type":"string"}},"required":["sprint_id","issue_keys"],"type":"object"}}

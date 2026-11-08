@@ -1,0 +1,1 @@
+{"name":"confluence_add_comment","description":"Add a comment to a Confluence page.","parameters":{"additionalProperties":false,"properties":{"body":{"description":"The comment content in Markdown format","type":"string"},"page_id":{"description":"The ID of the page to add a comment to","type":"string"}},"required":["page_id","body"],"type":"object"}}

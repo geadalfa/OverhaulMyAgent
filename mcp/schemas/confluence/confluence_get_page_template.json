@@ -1,0 +1,1 @@
+{"name":"confluence_get_page_template","description":"Get a Cloud page template by ID, including its storage-format body.","parameters":{"additionalProperties":false,"properties":{"template_id":{"description":"The ID of the template to retrieve.","type":"string"}},"required":["template_id"],"type":"object"}}

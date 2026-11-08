@@ -1,0 +1,1 @@
+{"name":"talon_rules","description":"Enumerate Raven's Talon detector rule corpus — id, category, severity, taste scope, and the src/data/principles/*.json entry each rule cites. No scan required; use this to show a client 'why' before or instead of running talon_scan.","parameters":{"$schema":"http://json-schema.org/draft-07/schema#","properties":{},"type":"object"}}

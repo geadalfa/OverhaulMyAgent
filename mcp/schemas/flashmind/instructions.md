@@ -1,0 +1,1 @@
+FALLBACK memory server. If the Engram tools (mem_*) are available, use Engram and do not also save here. Otherwise: at the start of a task call memory_context then memory_search; save important decisions with memory_save. If memory has no answer, say you do not know — never make it up.

@@ -1,0 +1,1 @@
+{"name":"unapprove_pull_request","description":"Unapprove (reject approval for) a pull request","parameters":{"properties":{"prId":{"description":"Pull request ID","type":"number"},"project":{"description":"Bitbucket project key","type":"string"},"repository":{"description":"Repository slug","type":"string"}},"required":["repository","prId"],"type":"object"}}

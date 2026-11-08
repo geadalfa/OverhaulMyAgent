@@ -1,0 +1,1 @@
+{"name":"get_pull_request","description":"Get pull request details","parameters":{"properties":{"prId":{"description":"Pull request ID","type":"number"},"project":{"description":"Bitbucket project key","type":"string"},"repository":{"description":"Repository slug","type":"string"}},"required":["repository","prId"],"type":"object"}}

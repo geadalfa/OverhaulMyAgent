@@ -1,0 +1,1 @@
+{"name":"nexus_get_ignored_users","description":"List the current user's ignored (muted) users [v2 - no v1 quota].\n\nReturns:\n    JSON array of users: {memberId, name, avatar, viewerHasIgnored}.\n","parameters":{"properties":{},"title":"nexus_get_ignored_usersArguments","type":"object"}}

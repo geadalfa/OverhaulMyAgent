@@ -1,0 +1,1 @@
+{"name":"jira_get_project_versions","description":"Get all fix versions for a specific Jira project.","parameters":{"additionalProperties":false,"properties":{"project_key":{"description":"Jira project key (e.g., 'PROJ', 'ACV2')","pattern":"^[A-Z][A-Z0-9_]+$","type":"string"}},"required":["project_key"],"type":"object"}}

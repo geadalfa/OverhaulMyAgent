@@ -1,0 +1,1 @@
+{"name":"nexus_get_endorsements","description":"List the authenticated account's endorsement history [v1 - uses v1 REST quota].\n\nReturns:\n    JSON array of {mod_id, domain_name, date (epoch), version,\n    status ('Undecided' | 'Abstained' | 'Endorsed')}.\n","parameters":{"properties":{},"title":"nexus_get_endorsementsArguments","type":"object"}}

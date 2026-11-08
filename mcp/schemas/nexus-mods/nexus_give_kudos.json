@@ -1,0 +1,1 @@
+{"name":"nexus_give_kudos","description":"Give kudos to a user via v2. [v2 - no v1 quota]\n\nReturns:\n    JSON {giveKudos: {success}} or an error string.\n","parameters":{"properties":{"user_id":{"description":"Nexus Mods member ID to give kudos to.","minimum":1,"title":"User Id","type":"integer"}},"required":["user_id"],"title":"nexus_give_kudosArguments","type":"object"}}

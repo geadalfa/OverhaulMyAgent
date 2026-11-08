@@ -1,0 +1,1 @@
+{"name":"memory_list","description":"List memories (newest first), optionally filtered by category.","parameters":{"properties":{"category":{"enum":["user","preference","project","fact","decision","lesson","other"],"type":"string"},"limit":{"maximum":200,"minimum":1,"type":"integer"}},"type":"object"}}

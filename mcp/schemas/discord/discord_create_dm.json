@@ -1,0 +1,1 @@
+{"name":"discord_create_dm","description":"Create or get existing DM channel with a user","parameters":{"$schema":"http://json-schema.org/draft-07/schema#","additionalProperties":false,"properties":{"userId":{"description":"The user ID to create DM with","type":"string"}},"required":["userId"],"type":"object"}}

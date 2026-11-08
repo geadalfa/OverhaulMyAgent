@@ -1,0 +1,1 @@
+{"name":"read_design_md","description":"Parse a DESIGN.md file and return its frontmatter, Markdown body, and flattened token index.","parameters":{"$schema":"http://json-schema.org/draft-07/schema#","additionalProperties":false,"properties":{"path":{"description":"Path to DESIGN.md","type":"string"}},"required":["path"],"type":"object"}}

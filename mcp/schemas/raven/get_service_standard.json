@@ -1,0 +1,1 @@
+{"name":"get_service_standard","description":"Get the GOV.UK Service Standard — 14 points the UK government uses to assess whether a public service is ready to launch. Widely applicable as a rigorous service-quality checklist beyond government. Use when the user asks how to evaluate a whole service.","parameters":{"properties":{},"type":"object"}}

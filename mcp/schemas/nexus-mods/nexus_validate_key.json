@@ -1,0 +1,1 @@
+{"name":"nexus_validate_key","description":"Validate the configured Nexus Mods API key [v1 - uses v1 REST quota].\nExempt from hourly rate limits; safe to use to check the key or probe remaining quota.\n\nReturns user_id, username, is_premium, is_supporter, email, and profile_url.\n","parameters":{"properties":{},"title":"nexus_validate_keyArguments","type":"object"}}
