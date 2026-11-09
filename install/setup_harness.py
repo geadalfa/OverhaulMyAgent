@@ -8,7 +8,7 @@ import sys
 import shutil
 import argparse
 
-HARNESS_TARGETS = ["all", "cursor", "claude", "antigravity", "kiro", "deepseek", "chatgpt"]
+HARNESS_TARGETS = ["all", "cursor", "claude", "antigravity", "kiro", "deepseek", "chatgpt", "qoder"]
 
 def setup(target="all", project_dir="."):
     project_dir = os.path.abspath(project_dir)
@@ -45,8 +45,14 @@ def setup(target="all", project_dir="."):
         shutil.copy2(os.path.join(src_root, "chatgpt_custom_instructions.md"), os.path.join(project_dir, "chatgpt_custom_instructions.md"))
         print("  + [✓] Prepared ChatGPT custom instructions (chatgpt_custom_instructions.md)")
 
-    print("
-[✓] Setup completed successfully!")
+    if target in ["all", "qoder"]:
+        shutil.copy2(os.path.join(src_root, "QODER.md"), os.path.join(project_dir, "QODER.md"))
+        qoder_dir = os.path.join(project_dir, ".qoder")
+        os.makedirs(qoder_dir, exist_ok=True)
+        print("  + [✓] Installed Qoder instructions (QODER.md & .qoder/)")
+        print("        For user-scope skills/knowledge/tools run install/install_qoder.sh")
+
+    print("\n[✓] Setup completed successfully!")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="OverhaulMyAgent Harness Setup Tool")

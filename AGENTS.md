@@ -1,7 +1,7 @@
 # AGENTS.md - Universal AI Coding Agent Specification
 
 > **Specification Standard:** [Agentic AI Foundation (AAIF) / Linux Foundation](https://agents.md/)  
-> **Supported Harnesses:** Antigravity, Cursor, Claude Code, OpenAI Codex, Devin, Windsurf, Aider, Goose
+> **Supported Harnesses:** Antigravity, Cursor, Claude Code, Qoder, OpenAI Codex, Devin, Windsurf, Aider, Goose
 
 ---
 

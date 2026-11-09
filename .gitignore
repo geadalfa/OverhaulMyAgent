@@ -1,0 +1,16 @@
+# Quarantine area for qoder_hub_sync.py — assets that failed the secret/PII
+# scanner or are new and unreviewed. Must never be committed.
+.quarantine/
+
+# Installer backups
+*.bak_qoder_install_*
+*.bak_sync_*
+*.bak_ag_*
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc

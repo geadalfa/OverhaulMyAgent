@@ -1,6 +1,6 @@
 ---
 name: windows-gaming-optimizer
-description: Optimize heavy Windows games (RDR2, Space Marine 2, Warhammer 3, Witcher 3, etc.) for high visual fidelity without PC thermal exhaustion, enforcing the User's zero-nausea anti-motion-sickness ergonomics (FOV 90-105°, Motion Blur Off, Camera Shake 0%, Frame Pacing).
+description: Optimize heavy Windows games (RDR2, Space Marine 2, Warhammer 3, Witcher 3, etc.) for high visual fidelity without PC thermal exhaustion, enforcing User's zero-nausea anti-motion-sickness ergonomics (FOV 90-105°, Motion Blur Off, Camera Shake 0%, Frame Pacing).
 ---
 
 # Windows Heavy Gaming Optimizer & Anti-Motion-Sickness Skill
@@ -10,7 +10,7 @@ Use this skill whenever User requests analysis, optimization, or performance tun
 Enforces **Pareto Efficiency ("Sweet Spot")**:
 1. **High Visual Fidelity ("Anti-Burik")**: Sharp textures, clean anti-aliasing via DLSS/XeSS/FSR Quality, preserved ambient occlusion depth.
 2. **Thermal & Hardware Protection ("Anti-Panas")**: Cut wasteful GPU/CPU compute, lock frametime, lower power consumption (Watts) to prevent room overheating and fan noise.
-3. **the User's Zero-Nausea Ergonomics**: Eliminate motion sickness triggers (narrow FOV, motion blur, camera shake, head bobbing, micro-stuttering).
+3. **User's Zero-Nausea Ergonomics**: Eliminate motion sickness triggers (narrow FOV, motion blur, camera shake, head bobbing, micro-stuttering).
 
 ---
 

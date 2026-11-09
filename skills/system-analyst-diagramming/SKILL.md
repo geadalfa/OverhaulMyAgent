@@ -168,7 +168,7 @@ Activity Diagrams in Enterprise Banking / Corporate Services FRDs follow a **UML
    - Orchestration / Gateway: `customer-onboarding-service`
    - Cache / State: `Redis (Cache & OTP)`
    - Relational Storage: `MySQL DB (onboarding_db)`
-   - Core Banking / Microservices: `Core CoreBank`, `Microservice Ledger`
+   - Core Banking / Microservices: `Core Banking Platform`, `Microservice Ledger`
    - Asynchronous Messaging: `Kafka (Notification / Event Streaming)`
 2. **Phase Partitioning:** Group functional steps horizontally into distinct lifecycle phases (e.g., *Phase 1: Verification & Inquiry*, *Phase 2: Activation Link Dispatch*, *Phase 3: Web Landing & Deeplink Resolution*, *Phase 4: OTP Validation & Finalization*).
 3. **Delta/Modification Highlighting (Red Boxes):**
@@ -251,7 +251,7 @@ When User asks to design or simplify the **Architecture Diagram** (Section 2 FRD
 - Engineers and product stakeholders need rapid, immediate comprehension without visual exhaustion.
 
 ### 8.2. Gold Standard: Clean 4-Quadrant Component Topology (`521x508`)
-Modeled directly on the InternalPlatform Onboarding standard (`page_id=123456700`):
+Modeled directly on the Internal Platform Onboarding standard (`page_id=123456700`):
 1. **Dimensions:** `diagramWidth="521"`, `height="508"`.
 2. **Component Topology:**
    - **Top-Left (Q1):** `[Partner Server]` $\leftrightarrow$ `[API_GATEWAY Gateway (#f8cecc)]`

@@ -22,7 +22,7 @@ When users provide web links (especially Google Gemini Share, Notion, Twitter/X,
 ## 2. Deterministic Solution: `fetch_web.py`
 
 Gemi uses a deterministic single-step CLI tool:
-`~/.gemini/scripts/fetch_web.py`
+`<HOME>/.gemini/scripts/fetch_web.py`
 
 ### Execution Architecture:
 ```mermaid
@@ -50,15 +50,15 @@ flowchart TD
    Run directly via `run_command`:
    ```bash
    # Short articles / direct terminal analysis:
-   python3 ~/.gemini/scripts/fetch_web.py "<URL>" --max-chars 8000
+   python3 <HOME>/.gemini/scripts/fetch_web.py "<URL>" --max-chars 8000
 
    # Long pages / large documentation (token-saving file output):
-   python3 ~/.gemini/scripts/fetch_web.py "<URL>" --out "~/.gemini/antigravity/scratch/scraped_page.md"
+   python3 <HOME>/.gemini/scripts/fetch_web.py "<URL>" --out "<HOME>/.gemini/antigravity/scratch/scraped_page.md"
    ```
 3. **Structured JSON Output (Optional):**
    When structured metadata is needed (title, description, raw length, truncated flag):
    ```bash
-   python3 ~/.gemini/scripts/fetch_web.py "<URL>" --json
+   python3 <HOME>/.gemini/scripts/fetch_web.py "<URL>" --json
    ```
 4. **Speed & Efficiency:**
    - Static pages: Completes in 1–2 seconds.

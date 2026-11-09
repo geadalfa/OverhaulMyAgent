@@ -70,13 +70,13 @@ User does not need a separate OMP background daemon on Windows because **Antigra
 ├────────────────────────────────┬───────────────────────────────────────┤
 │ OMP / Engram Component         │ Gemi Native Implementation            │
 ├────────────────────────────────┼───────────────────────────────────────┤
-│ Long-Term Memory (LTM)         │ ~/.gemini/knowledge/       │
+│ Long-Term Memory (LTM)         │ <HOME>/.gemini/knowledge/       │
 │                                │ (Permanently indexed Markdown base)   │
 ├────────────────────────────────┼───────────────────────────────────────┤
 │ Identity & Core Invariants     │ RULE[user_global] & GEMINI.md         │
 │                                │ (Injected deterministically per turn) │
 ├────────────────────────────────┼───────────────────────────────────────┤
-│ Agentic Skills                 │ ~/.gemini/config/skills/  │
+│ Agentic Skills                 │ <HOME>/.gemini/config/skills/  │
 │                                │ (Modular on-demand SKILL.md packages) │
 ├────────────────────────────────┼───────────────────────────────────────┤
 │ Multi-Agent Shinobi Hierarchy  │ ~/.agents/AGENTS.md & Konoha Protocol │
@@ -104,8 +104,8 @@ To ensure Gemini 3.8 Flash (High) avoids amnesia and maintains razor-sharp accur
 
 For full technical specifications and operational skills, consult:
 1. **OMP Agent Harness Deep Dive:**
-   - Architecture: ~/.gemini/knowledge/omp_agent_harness_architecture.md
-   - Active Skill: ~/.gemini/config/skills/omp-agent-harness/SKILL.md
+   - Architecture: <HOME>/.gemini/knowledge/omp_agent_harness_architecture.md
+   - Active Skill: <HOME>/.gemini/config/skills/omp-agent-harness/SKILL.md
 2. **Noted Connected Workspace & Knowledge Engine:**
-   - Architecture: ~/.gemini/knowledge/noted_workspace_architecture_and_knowledge_engine.md
-   - Active Skill: ~/.gemini/config/skills/noted-workspace-engine/SKILL.md
+   - Architecture: <HOME>/.gemini/knowledge/noted_workspace_architecture_and_knowledge_engine.md
+   - Active Skill: <HOME>/.gemini/config/skills/noted-workspace-engine/SKILL.md

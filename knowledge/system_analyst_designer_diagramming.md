@@ -58,7 +58,7 @@ flowchart TD
   2. `Frontend (iOS / Android / Web)`: Client validation, payload encryption, request debouncing, API Gateway dispatch.
   3. `API Gateway (API Gateway)`: Routing, session validation, rate limiting, request aggregation.
   4. `Core Microservices (onboarding_service / Ledger / Reporting / Identity)`: State machine validation, transactional writes, credential verification, audit logging.
-  5. `External / Third Parties (Identity Provider / eKYC-Vendor-A / eKYC-Vendor-B / eKYC-Vendor-C / Enterprise Service Bus / Kafka)`: Identity verification, biometric liveness, digital signatures, async event publishing.
+  5. `External / Third Parties (Identity Provider / eKYC Vendor A / eKYC Vendor B / eKYC Vendor C / Enterprise Service Bus / Kafka)`: Identity verification, biometric liveness, digital signatures, async event publishing.
 - **DaC Best Practice:** Prototype using PlantUML (`|Swimlane|`) or Mermaid (`subgraph`), then convert to Draw.io swimlane objects.
 
 ### 2.3. User Story Mapping Grid
@@ -176,7 +176,7 @@ The Draw.io Mermaid parser is stricter than standard Markdown viewers. To guaran
 | **Decision / Conditional Branching** | `#fff2cc` | `#d6b656` | `#7f6000` | Status Check, PIN Validation, User Exists Check |
 | **End / Failure / Exception State** | `#f8cecc` | `#b85450` | `#660000` | Rejection, RC `SM`, Fraud Alert, Error Exception |
 | **Database / Persistence / Caching** | `#e1d5e7` | `#9673a6` | `#351c75` | MySQL `onboarding_db`, `ibank`, Redis Cache |
-| **External Service / Third Party** | `#ffe6cc` | `#d79b00` | `#783f04` | Identity Provider, eKYC-Vendor-A, eKYC-Vendor-B, eKYC-Vendor-C, CASA ESB |
+| **External Service / Third Party** | `#ffe6cc` | `#d79b00` | `#783f04` | Identity Provider, eKYC Vendor A, eKYC Vendor B, eKYC Vendor C, CASA ESB |
 | **Message Broker / Async Worker** | `#f5f5f5` | `#666666` | `#333333` | RabbitMQ queue, Kafka topic, Async Worker |
 
 ### 5.2. Shape Stylesheet Properties (`style` attribute)
@@ -218,7 +218,7 @@ squad-<diagram_type>-<feature_kebab_case>.drawio
 Examples:
 - `squad-flowchart-sample-feature.drawio`
 - `squad-activitydiagram-fast-migration.drawio`
-- `squad-architecture-ekyc-vendor-c-liveness.drawio`
+- `squad-architecture-vendor-liveness.drawio`
 - `squad-sequencediagram-ocr-onboarding.drawio`
 
 ### 6.2. Confluence Storage Format (XHTML)
@@ -292,7 +292,7 @@ if __name__ == "__main__":
 ### 8.1. The 5-Layer Anti-Pattern vs. Clean Component Topology
 When designing architecture diagrams for Functional Requirement Documents (FRDs) in banking systems (such as Enterprise Mobile App and Corporate Gateway), a major anti-pattern is the **Over-Engineered 5-Layer Diagram**:
 - **Why it fails:** 40+ nested boxes, arbitrary layer swimlanes (Client, API Gateway, Core Microservices, External Layer, Storage Layer), paragraphs of explanatory text, and cluttered crisscrossing connection lines. This creates overwhelming cognitive fatigue, becomes completely illegible when embedded inside Confluence expand macros, and is rejected by engineers and product owners.
-- **The "Anti-Ribet" Standard (InternalPlatform Gold Standard - Page ID `123456700`):** A clean, component-level topology focused strictly on active actors, primary gateways, central microservices, fast cache, and persistent storage, contained within an uncluttered canvas.
+- **The "Anti-Ribet" Standard (Reference Gold Standard - Page ID `123456700`):** A clean, component-level topology focused strictly on active actors, primary gateways, central microservices, fast cache, and persistent storage, contained within an uncluttered canvas.
 
 ```
        [Partner Server]  (e.g., Vendor / InternalPlatform)
@@ -408,7 +408,7 @@ A centralized Python automation tool is located at `~/.gemini/scripts/confluence
 # 1. Update Macro Revision Directly (Fixes 'Stuck Revision' Trap)
 python ~/.gemini/scripts/confluence_drawio_tool.py set-revision \
   --page-id 123456789 \
-  --name architecture-diagram-partner-vendor-partner-ca \
+  --name architecture-diagram-partner-onboarding \
   --revision 2
 
 # 2. Upload Dual Attachments (Auto-handles new vs existing update)
@@ -416,12 +416,12 @@ python ~/.gemini/scripts/confluence_drawio_tool.py upload \
   --page-id 123456789 \
   --xml ./arch.xml \
   --png ./arch.png \
-  --name architecture-diagram-partner-vendor-partner-ca
+  --name architecture-diagram-partner-onboarding
 
 # 3. Inject Macro (Activity or Arch)
 python ~/.gemini/scripts/confluence_drawio_tool.py inject \
   --page-id 123456789 \
-  --name architecture-diagram-partner-vendor-partner-ca \
+  --name architecture-diagram-partner-onboarding \
   --type arch \
   --revision 2
 
@@ -430,7 +430,7 @@ python ~/.gemini/scripts/confluence_drawio_tool.py publish \
   --page-id 123456789 \
   --xml ./activity.xml \
   --png ./activity.png \
-  --name activity-diagram-partner-vendor-partner-ca \
+  --name activity-diagram-partner-onboarding \
   --type activity
 
 # 5. Deep Verification of Rendered View HTML

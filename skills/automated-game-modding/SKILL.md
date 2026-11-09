@@ -25,24 +25,24 @@ Every modding task executed by Gemi MUST follow these 5 core rules:
 
 ## 2. Deterministic CLI Execution (`game_mod_tool.py`)
 
-Gemi utilizes `tools/game_mod_tool.py` as the sensory-motor engine for modding:
+Gemi utilizes `C:/Users/<user>/.gemini/scripts/game_mod_tool.py` as the sensory-motor engine for modding:
 
 ### Command Matrix
 ```bash
-# 1. Discover all installed Steam and Epic games on the User's workstation
-python tools/game_mod_tool.py discover
+# 1. Discover all installed Steam and Epic games on User's workstation
+python C:/Users/<user>/.gemini/scripts/game_mod_tool.py discover
 
 # 2. Inspect game executable version, detect mod frameworks (RED4ext, SKSE, BepInEx, etc.)
-python tools/game_mod_tool.py inspect "<game_path>"
+python C:/Users/<user>/.gemini/scripts/game_mod_tool.py inspect "<game_path>"
 
 # 3. Validate Nexus Mods Personal API Key
-python tools/game_mod_tool.py validate-key "<API_KEY>"
+python C:/Users/<user>/.gemini/scripts/game_mod_tool.py validate-key "<API_KEY>"
 
 # 4. Deploy staged mod files with transactional manifest
-python tools/game_mod_tool.py deploy "<staging_path>" "<game_path>" --name "<mod_name>"
+python C:/Users/<user>/.gemini/scripts/game_mod_tool.py deploy "<staging_path>" "<game_path>" --name "<mod_name>"
 
 # 5. Undeploy mod cleanly (reverting unmodified files, backing up user edits)
-python tools/game_mod_tool.py undeploy "<game_path>" "<mod_name>"
+python C:/Users/<user>/.gemini/scripts/game_mod_tool.py undeploy "<game_path>" "<mod_name>"
 ```
 
 ---
@@ -52,7 +52,7 @@ python tools/game_mod_tool.py undeploy "<game_path>" "<mod_name>"
 ### 3.1. Nexus Mods API
 - Nexus Mods REST API (v1) and GraphQL (v2) require a **Personal API Key**.
 - Direct API download links (`/download_link.json`) are officially supported on **Nexus Premium** accounts.
-- **For Free Accounts**: Download via browser or `nxm://` URL handler into `D:\Game Mentah\` or `~\Downloads\`, then hand off the file path to Gemi for automated staging, dependency checking, and deployment.
+- **For Free Accounts**: Download via browser or `nxm://` URL handler into `D:\Game Mentah\` or `C:\Users\<user>\Downloads\`, then hand off the file path to Gemi for automated staging, dependency checking, and deployment.
 
 ### 3.2. GitHub Open-Source Frameworks
 - Core script engines and hook loaders (e.g., RED4ext, redscript, ArchiveXL, Codeware, Mod Settings, SKSE, BepInEx) should be fetched directly from official GitHub releases to ensure 100% binary matching with the user's game patch.

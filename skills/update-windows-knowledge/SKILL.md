@@ -20,7 +20,7 @@ This skill automates syncing knowledge, rules, skills, and configuration files f
 ## 2. Backup Source Location
 - **Google Drive Path on macOS:**
   ```text
-  ~/Library/CloudStorage/GoogleDrive-<your-email>/Other computers/My Computer/Work/Backup Antigravity/Buat Windows
+  ~/Library/CloudStorage/GoogleDrive-<your-email>/Other computers/My Computer/<backup-root>/Buat Windows
   ```
 - **Target Files:**
   - `gemi-antigravity-config.zip` (primary priority)

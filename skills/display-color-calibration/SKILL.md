@@ -45,23 +45,23 @@ Every calibration recommendation and automation run **MUST ENFORCE THIS CHECKLIS
 
 ## 3. Dedicated CLI Execution Tool: `monitor_color_tool.py`
 
-Execute operations deterministically via the local tool in `tools/monitor_color_tool.py`:
+Execute operations deterministically via the local tool in `C:/Users/<user>/.gemini/scripts/monitor_color_tool.py`:
 
 ```bash
 # 1. Full system display audit (EDID, active monitors, current VCP values)
-python tools/monitor_color_tool.py audit
+python C:/Users/<user>/.gemini/scripts/monitor_color_tool.py audit
 
 # 2. Inspect EDID chromaticity coordinates & gamut coverage
-python tools/monitor_color_tool.py edid
+python C:/Users/<user>/.gemini/scripts/monitor_color_tool.py edid
 
 # 3. Read current hardware VCP registers via DDC/CI
-python tools/monitor_color_tool.py vcp-get --monitor 0
+python C:/Users/<user>/.gemini/scripts/monitor_color_tool.py vcp-get --monitor 0
 
 # 4. Safely adjust hardware brightness or RGB gain (Hardware-First)
-python tools/monitor_color_tool.py vcp-set --monitor 0 --code 0x10 --value 25
+python C:/Users/<user>/.gemini/scripts/monitor_color_tool.py vcp-set --monitor 0 --code 0x10 --value 25
 
 # 5. Calculate CIEDE2000 (ΔE00) difference between measured and target colors
-python tools/monitor_color_tool.py delta-e --target-lab 50,0,0 --sample-lab 51,1,-1
+python C:/Users/<user>/.gemini/scripts/monitor_color_tool.py delta-e --target-lab 50,0,0 --sample-lab 51,1,-1
 ```
 
 ---

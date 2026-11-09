@@ -1,0 +1,10 @@
+{
+  "name": "overhaul-my-agent",
+  "displayName": "OverhaulMyAgent",
+  "version": "1.0.0",
+  "description": "Deterministic, Anti-Vibe-Coding, and Token-Efficient AI Agent Operating System. Ships the 5 Quality Gates micro-kernel, on-demand skills, a sanitized knowledge base, and deterministic tools for the Qoder harness.",
+  "author": {
+    "name": "OverhaulMyAgent Contributors"
+  },
+  "skills": "./skills/"
+}

@@ -1,0 +1,59 @@
+{
+  "enabledPlugins": {
+    "overhaul-my-agent@local": true
+  },
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "YOUR_GITHUB_PERSONAL_ACCESS_TOKEN_HERE"
+      }
+    },
+    "financial-engine": {
+      "command": "python3",
+      "args": [
+        "/ABSOLUTE/PATH/TO/OverhaulMyAgent/tools/financial_mcp_server.py"
+      ],
+      "env": {}
+    },
+    "nvidia-app": {
+      "command": "NvAppMcpServer.exe",
+      "disabled": true
+    },
+    "jira": {
+      "command": "uvx",
+      "args": [
+        "mcp-atlassian",
+        "--jira-url",
+        "https://your-company.example.com",
+        "--jira-personal-token",
+        "YOUR_TOKEN_HERE",
+        "--no-jira-ssl-verify"
+      ]
+    },
+    "confluence": {
+      "command": "uvx",
+      "args": [
+        "mcp-atlassian"
+      ],
+      "env": {
+        "CONFLUENCE_PERSONAL_TOKEN": "YOUR_CONFLUENCE_PERSONAL_TOKEN_HERE",
+        "CONFLUENCE_URL": "YOUR_CONFLUENCE_URL_HERE"
+      }
+    },
+    "discord": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "discord-mcp"
+      ],
+      "env": {
+        "DISCORD_BOT_TOKEN": "YOUR_DISCORD_BOT_TOKEN_HERE"
+      }
+    }
+  }
+}

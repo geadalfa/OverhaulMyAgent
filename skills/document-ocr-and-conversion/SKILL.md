@@ -11,7 +11,7 @@ Use this skill whenever User requests extracting, scanning, reading, or converti
 
 ## 1. Zero-Leakage Privacy Invariant
 
-- **Anti-Web-Converter Rule:** Never upload the User's documents to third-party web conversion services or unverified cloud APIs.
+- **Anti-Web-Converter Rule:** Never upload User's documents to third-party web conversion services or unverified cloud APIs.
 - **Local-First Processing:** Process all files locally on the workstation using deterministic Python tools (`pikepdf`, `PyMuPDF`, `OpenCV`, `python-docx`) or local model inferences.
 - **Memory & Storage Hygiene:** Intermediate rendered raster pages must reside in temporary memory or project scratch directories and be securely purged upon task completion.
 

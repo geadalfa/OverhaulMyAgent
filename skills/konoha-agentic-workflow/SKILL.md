@@ -15,7 +15,7 @@ Select the appropriate specialist persona for each workflow stage without multi-
 
 ```mermaid
 flowchart TD
-    User["the User's Request"] --> Sannin["✧ Sannin: Triage & DoR Gate"]
+    User["User's Request"] --> Sannin["✧ Sannin: Triage & DoR Gate"]
     Sannin --> Genin["⚑ Genin: Read-only Recon (file:line)"]
     Genin --> KagePlan["◎ Kage: Modular Plan & Architecture"]
     KagePlan -. External Info .-> Chunin["▫ Chunin: Web RAG & API Docs"]

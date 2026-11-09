@@ -5,11 +5,11 @@ Comprehensive engineering guide, technical knowledge base, and heuristic rules f
 Primary Objectives:
 1. **Pareto Efficiency ("The Sweet Spot")**: Eliminate compute overhead imperceptible to human eyes while preserving sharp, uncompromised visuals.
 2. **Thermal & Hardware Protection**: Eliminate wasted GPU/CPU cycles, reduce wattage, and lower thermal output to keep the room cool.
-3. **the User's Anti-Motion-Sickness Ergonomics**: Prevent vestibular-visual sensory conflicts (nausea, dizziness, eye fatigue) on motion-sensitive displays.
+3. **User's Anti-Motion-Sickness Ergonomics**: Prevent vestibular-visual sensory conflicts (nausea, dizziness, eye fatigue) on motion-sensitive displays.
 
 ---
 
-## 1. the User's Ergonomic Profile (Mandatory Anti-Motion-Sickness Invariants)
+## 1. User's Ergonomic Profile (Mandatory Anti-Motion-Sickness Invariants)
 
 User experiences heightened sensitivity to visual-vestibular motion sickness during fast camera rotations or FPS gameplay. High temperatures in the room also exacerbate fatigue. The goal is a cool-running PC with crisp, artifact-free visuals.
 

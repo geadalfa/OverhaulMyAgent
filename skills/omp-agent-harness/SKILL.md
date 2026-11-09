@@ -105,4 +105,4 @@ To keep Gemini 3.8 Flash operating with maximum focus:
 1. **Suppress Terminal Noise:** Filter build outputs. Never allow hundreds of lines of compiler logs into context.
 2. **Strict Range Bounding:** Prohibit reading > 100 lines at once unless strictly necessary.
 3. **Atomic State Ledger:** Maintain `[PROGRESS STATE]` tracking at every conversational milestone.
-4. **Immediate Negative Constraint Re-Anchoring:** Verify that critical invariants (the User's gaming ergonomics, zero-slop rules, database isolation) are preserved across all generated code.
+4. **Immediate Negative Constraint Re-Anchoring:** Verify that critical invariants (User's gaming ergonomics, zero-slop rules, database isolation) are preserved across all generated code.

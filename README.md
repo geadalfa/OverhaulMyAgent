@@ -5,7 +5,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Standard: AGENTS.md](https://img.shields.io/badge/Standard-AGENTS.md-green.svg)](https://agents.md/)
-[![Harness: Universal](https://img.shields.io/badge/Harness-Antigravity%20|%20Cursor%20|%20Claude%20|%20Kiro%20|%20DeepSeek%20|%20Codex-purple.svg)](#multi-harness-support)
+[![Harness: Universal](https://img.shields.io/badge/Harness-Antigravity%20|%20Cursor%20|%20Claude%20|%20Kiro%20|%20Qoder%20|%20DeepSeek%20|%20Codex-purple.svg)](#multi-harness-support)
 [![Token Savings: 60-98%](https://img.shields.io/badge/Token%20Compression-60%25--98%25-orange.svg)](#progressive-disclosure-for-lightweight-models)
 [![Zero-PII Verified](https://img.shields.io/badge/Privacy-Zero--PII%20Audited-brightgreen.svg)](#security--zero-leakage-guarantee)
 
@@ -22,7 +22,7 @@ Most AI coding workflows suffer from **Vibe Coding**: speculative patching, hall
 2. **The 5 Quality Gates:** Spec-Kit, DDIA microservice isolation, concurrency/locking architecture, atomic bottom-up execution, and adversarial reflexion loops.
 3. **Progressive Disclosure:** A lightweight kernel (< 2,000 tokens) coupled with an on-demand routing index. Lightweight models (GPT-4o-mini/Luna, Claude Sonnet, Qwen 2.5, DeepSeek Flash, Gemini Flash) load only what they need when they need it.
 4. **Deterministic Tooling Suite:** Offloading complex calculations, web scraping, OCR, and colorimetry to deterministic local scripts rather than fragile LLM guessing.
-5. **Multi-Harness Portability:** Out-of-the-box adapters for Cursor, Antigravity, Claude Code, Kiro, DeepSeek Harness (OMP), and OpenAI Codex.
+5. **Multi-Harness Portability:** Out-of-the-box adapters for Cursor, Antigravity, Claude Code, Kiro, Qoder, DeepSeek Harness (OMP), and OpenAI Codex.
 
 ---
 
@@ -65,6 +65,7 @@ OverhaulMyAgent supports every modern agent harness natively:
 | **Claude Code & Claude Desktop** | `CLAUDE.md` & `mcp/claude_desktop_config.template.json` | Native instruction file & MCP |
 | **Google Antigravity & Gemini CLI** | `GEMINI.md`, `skills/`, `knowledge/` | Native Antigravity skill architecture |
 | **Kiro Harness** | `kiro.json` | Agent profile & tool binding schema |
+| **Qoder Desktop & CLI** | `QODER.md`, `.qoder-plugin/plugin.json` & `mcp/qoder_settings.template.json` | Native local-plugin architecture (skills + knowledge + memory contract) |
 | **DeepSeek Terminal Harness & OMP** | `deepseek_harness.md` | Hashline edits & LSP diagnostic loop |
 | **ChatGPT Web & Desktop Apps** | `chatgpt_custom_instructions.md` | Two-box custom instructions |
 
@@ -121,6 +122,9 @@ python install/setup_harness.py --target cursor --dir /path/to/your/project
 
 # Or deploy specifically for Claude Code
 python install/setup_harness.py --target claude --dir /path/to/your/project
+
+# Or deploy specifically for Qoder (project-scope QODER.md + .qoder/)
+python install/setup_harness.py --target qoder --dir /path/to/your/project
 ```
 
 #### Global Agent Installation
@@ -135,6 +139,31 @@ python install/setup_harness.py --target claude --dir /path/to/your/project
   .\install\install.ps1
   ```
 
+#### Qoder Installation (user scope)
+Installs this repository as a Qoder local plugin — skills, knowledge, tools and
+the `core/` micro-kernel — then registers and enables it in `~/.qoder`:
+
+- **macOS / Linux:**
+  ```bash
+  chmod +x install/install_qoder.sh
+  ./install/install_qoder.sh --dry-run   # preview the plan first
+  ./install/install_qoder.sh
+  ```
+- **Windows (PowerShell):**
+  ```powershell
+  Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+  .\install\install_qoder.ps1 -DryRun
+  .\install\install_qoder.ps1
+  ```
+
+The installer merges `installed_plugins_v2.json` and `settings.json` instead of
+overwriting them, keeps timestamped `.bak_qoder_install_*` backups, and always
+writes `settings.json` as UTF-8 **without** a BOM (a BOM makes Qoder reject the
+file with `SETTINGS_JSON_INVALID` and silently disables every MCP server).
+MCP servers are never auto-installed — copy what you need from
+`mcp/qoder_settings.template.json` and fill in your own tokens.
+**Restart Qoder** afterwards so the plugin loads. See [`QODER.md`](QODER.md).
+
 ---
 
 ### 7. Security & Zero-Leakage Guarantee
@@ -143,6 +172,7 @@ OverhaulMyAgent is built with privacy-first engineering:
 - **Zero Personal Identifiers:** All personal identities, hardware serials, and local user paths are stripped.
 - **Zero Leaked Credentials:** No API keys, session tokens, or private endpoints. MCP configs are distributed as clean `.template.json` files.
 - **Continuous Red-Team CI:** Automated GitHub Actions linter asserts 0 matches against sensitive regex patterns on every push and PR.
+- **Publishing Gate:** `tools/qoder_hub_sync.py` keeps a private agent install and this public repository in sync without ever leaking. It redacts home paths and the operator's name, refuses denylisted and hand-sanitised ("frozen") paths, quarantines anything containing a credential, intranet host, private IP, or internal system name, and stores rejected material **outside** the git working tree. A whole-repository scan runs before every commit; one finding aborts the push.
 
 ---
 
@@ -161,7 +191,7 @@ Mayoritas alur kerja AI coding saat ini terjebak dalam fenomena **Vibe Coding**:
 2. **5 Quality Gates:** Standardisasi arsitektur menyeluruh mencakup Spec-Kit, isolasi microservice (DDIA), kontrol konkurensi/locking database, eksekusi bottom-up, dan evaluasi refleksi adversarial (*Reflexion*).
 3. **Progressive Disclosure:** Kernel super ringan (< 2.000 token) dengan indeks pemanggilan modul sesuai kebutuhan (*on-demand*). Model ringan (GPT-4o-mini/Luna, Claude Sonnet, Qwen 2.5, DeepSeek Flash, Gemini Flash) hanya membaca modul yang relevan sehingga hemat token dan tidak lemot.
 4. **Perangkat Deterministik (Tooling Suite):** Menyerahkan perhitungan rumit, ekstraksi web, OCR, dan kalibrasi perangkat keras ke skrip Python/Shell lokal, bukan mengandalkan tebakan LLM.
-5. **Portabilitas Multi-Harness:** Mendukung langsung Cursor, Antigravity, Claude Code, Kiro, DeepSeek Harness (OMP), dan OpenAI Codex.
+5. **Portabilitas Multi-Harness:** Mendukung langsung Cursor, Antigravity, Claude Code, Kiro, Qoder, DeepSeek Harness (OMP), dan OpenAI Codex.
 
 ---
 
@@ -187,6 +217,7 @@ OverhaulMyAgent dirancang agar langsung dapat digunakan di berbagai harness tanp
 | **Claude Code & Claude Desktop** | `CLAUDE.md` & `mcp/claude_desktop_config.template.json` | Konfigurasi bawaan Claude Code CLI & Desktop |
 | **Google Antigravity & Gemini CLI** | `GEMINI.md`, `skills/`, `knowledge/` | Format bawaan ekosistem Antigravity |
 | **Kiro Agent Harness** | `kiro.json` | Profil kapabilitas dan registri tools |
+| **Qoder Desktop & CLI** | `QODER.md`, `.qoder-plugin/plugin.json` & `mcp/qoder_settings.template.json` | Arsitektur plugin lokal bawaan (skills + knowledge + kontrak memory) |
 | **DeepSeek Terminal Harness & OMP** | `deepseek_harness.md` | Edit presisi hashline dan diagnostik LSP in-process |
 | **ChatGPT Web & Aplikasi Desktop** | `chatgpt_custom_instructions.md` | Format dua kotak instruksi khusus |
 
@@ -225,6 +256,9 @@ python install/setup_harness.py --target cursor --dir /path/ke/proyek/anda
 
 # Atau khusus untuk Claude Code
 python install/setup_harness.py --target claude --dir /path/ke/proyek/anda
+
+# Atau khusus untuk Qoder (QODER.md + .qoder/ level proyek)
+python install/setup_harness.py --target qoder --dir /path/ke/proyek/anda
 ```
 
 #### Pemasangan Global ke Sistem
@@ -239,6 +273,31 @@ python install/setup_harness.py --target claude --dir /path/ke/proyek/anda
   .\install\install.ps1
   ```
 
+#### Pemasangan Qoder (level user)
+Memasang repositori ini sebagai plugin lokal Qoder — skills, knowledge, tools,
+dan micro-kernel `core/` — lalu mendaftarkan sekaligus mengaktifkannya di `~/.qoder`:
+
+- **macOS / Linux:**
+  ```bash
+  chmod +x install/install_qoder.sh
+  ./install/install_qoder.sh --dry-run   # lihat rencananya lebih dulu
+  ./install/install_qoder.sh
+  ```
+- **Windows (PowerShell):**
+  ```powershell
+  Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+  .\install\install_qoder.ps1 -DryRun
+  .\install\install_qoder.ps1
+  ```
+
+Installer ini **menggabungkan** (bukan menimpa) `installed_plugins_v2.json` dan
+`settings.json`, menyimpan cadangan `.bak_qoder_install_*`, dan selalu menulis
+`settings.json` sebagai UTF-8 **tanpa BOM** — adanya BOM membuat Qoder menolak
+file dengan `SETTINGS_JSON_INVALID` dan menonaktifkan semua MCP server secara
+diam-diam. MCP server tidak pernah dipasang otomatis; salin yang Anda butuhkan
+dari `mcp/qoder_settings.template.json` lalu isi token Anda sendiri.
+**Restart Qoder** setelah instalasi agar plugin termuat. Lihat [`QODER.md`](QODER.md).
+
 ---
 
 ### 6. Jaminan Keamanan & Privasi 100%
@@ -247,6 +306,7 @@ OverhaulMyAgent memprioritaskan keamanan informasi:
 - **Tanpa Identitas Pribadi:** Semua nama pribadi, nomor seri perangkat keras, dan path komputer lokal telah dibersihkan secara otomatis.
 - **Tanpa Kredensial / Token:** Tidak ada API key, token otentikasi, maupun rahasia sistem. Konfigurasi MCP didistribusikan dalam bentuk template bersih (`mcp_config.template.json`).
 - **Pemeriksaan Keamanan CI/CD:** Dilengkapi pipeline otomatis GitHub Actions yang memvalidasi bahwa tidak ada pola data sensitif yang lolos ke repositori publik.
+- **Gerbang Publikasi:** `tools/qoder_hub_sync.py` menjaga instalasi agen privat dan repositori publik ini tetap sinkron tanpa kebocoran. Skrip ini menyamarkan path home dan nama operator, menolak path yang masuk daftar larangan maupun yang disanitasi manual ("frozen"), mengarantina berkas yang memuat kredensial, host intranet, IP privat, atau nama sistem internal, dan menyimpan materi yang ditolak **di luar** working tree git. Pemindaian seluruh repositori dijalankan sebelum setiap commit; satu temuan saja membatalkan push.
 
 ---
 
