@@ -48,7 +48,7 @@ The community solution combines a **Harness (OMP)** + **Persistent Memory (Engra
   - `personal`: Developer-specific workflow preferences and local environment flags.
 
 ### How Engram Prevents Context Amnesia:
-Engram avoids storing raw conversational chat dumps. It persists **atomic structured abstractions**. When a new session initializes, the agent does not parse 100,000 legacy chat tokens; it executes `mem_context` to fetch the top 5–10 vital project invariants (e.g., *"Do not touch the stable bridge router"*, *"the object-storage dev port is 9000"*).
+Engram avoids storing raw conversational chat dumps. It persists **atomic structured abstractions**. When a new session initializes, the agent does not parse 100,000 legacy chat tokens; it executes `mem_context` to fetch the top 5–10 vital project invariants (e.g., *"Do not touch the stable bridge router"*, *"MinIO dev port is 4015"*).
 
 ---
 

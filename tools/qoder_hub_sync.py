@@ -523,6 +523,24 @@ def git(args: List[str], cwd: str) -> Tuple[int, str]:
     return proc.returncode, (proc.stdout + proc.stderr).strip()
 
 
+# A commit author e-mail is published forever on a public repository. Refuse to
+# commit under a corporate or intranet identity.
+CORPORATE_EMAIL_RE = re.compile(r"(?i)@(?:[\w\-]+\.)*(?:co\.id|corp|internal|intranet|local|lan)$|\bcorp\.")
+
+
+def check_git_identity(repo_root: str) -> Optional[str]:
+    rc, email = git(["config", "user.email"], repo_root)
+    email = email.strip()
+    if rc != 0 or not email:
+        return ("git user.email is not configured for this checkout; set a private identity, e.g.\n"
+                "      git config --local user.email \"<id>+<username>@users.noreply.github.com\"")
+    if CORPORATE_EMAIL_RE.search(email):
+        return (f"git user.email {email!r} looks like a corporate/intranet address and would be\n"
+                "      published with every commit. Set a private identity first, e.g.\n"
+                "      git config --local user.email \"<id>+<username>@users.noreply.github.com\"")
+    return None
+
+
 def ensure_gitignore(repo_root: str, dry: bool) -> None:
     path = os.path.join(repo_root, ".gitignore")
     entries = [f"{QUARANTINE_DIR}/", "*.bak_qoder_install_*", ".DS_Store", "__pycache__/"]
@@ -709,6 +727,12 @@ def run(args: argparse.Namespace) -> int:
         log(f"\n  [x] ABORT: {len(findings)} sensitive finding(s) in the repository:")
         for f in findings[:20]:
             log(f"      {f}")
+        log("      Nothing was committed or pushed.")
+        return 1
+
+    identity_problem = check_git_identity(repo_root)
+    if identity_problem:
+        log(f"\n  [x] ABORT: {identity_problem}")
         log("      Nothing was committed or pushed.")
         return 1
 
