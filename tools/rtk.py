@@ -203,7 +203,7 @@ def cmd_query_graph(node_name, graph_path="graphify-out/graph.json"):
             graph_path,
             os.path.join(".", "graphify-out", "graph.json"),
             os.path.join("..", "graphify-out", "graph.json"),
-            r"C:\Users\<user>\.gemini\antigravity\scratch\bw-games\graphify-out\graph.json"
+            r"~/.gemini/antigravity\scratch\bw-games\graphify-out\graph.json"
         ]
         found = None
         for c in candidates:
