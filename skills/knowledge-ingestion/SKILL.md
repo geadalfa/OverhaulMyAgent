@@ -155,6 +155,14 @@ description: Use when <trigger conditions>. <What it produces.>
 - No secrets or PII in the content.
 - If the source was a repo, remove the temp clone.
 
+## Step 7.5 — Backup to GDrive & report
+
+Setiap kali menambah atau mengubah knowledge doc/INDEX:
+1. Jalankan `node ~/.qoder/sync/qoder-sync.mjs export`.
+2. Baca `REPORT.md` di folder backup Google Drive.
+3. Laporkan di chat: status export, path backup, dan waktu.
+4. Jika export gagal, laporkan error dan jangan klaim backup berhasil.
+
 ## Step 8 — Report
 
 Report in Bahasa Indonesia:
