@@ -1,6 +1,6 @@
 # Engram Persistent Memory, OMP Terminal Harness & Long-Horizon Agent Continuity
 
-> **Reference Projects:** [can1357/oh-my-pi](https://github.com/can1357/oh-my-pi) (`omp`) & [thebtf/engram](https://github.com/thebtf/engram)  
+> **Reference Projects:** [can1357/oh-my-pi](https://github.com/can1357/oh-my-pi) (`omp`, upstream v18.18.6) & [thebtf/engram](https://github.com/thebtf/engram) (upstream v7.1.3)  
 > **Core Topic:** Solving LLM context amnesia ("brain fog"), cross-session long-term memory (LTM), and token-efficient agentic skills for Gemini 3.8 Flash in long-run coding environments.
 
 ---

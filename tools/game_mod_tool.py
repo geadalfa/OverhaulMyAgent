@@ -183,7 +183,7 @@ def get_nexus_api_key():
         except Exception:
             pass
 
-    config_path = r"C:\Users\<user>\.gemini\config\mcp_config.json"
+    config_path = r"<HOME>\.gemini\config\mcp_config.json"
     if os.path.exists(config_path):
         try:
             with open(config_path, "r", encoding="utf-8") as f:

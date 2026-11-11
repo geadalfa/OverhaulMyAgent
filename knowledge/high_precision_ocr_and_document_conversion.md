@@ -62,7 +62,7 @@ This document establishes the **Zero-Leakage Local-First Document Pipeline** for
 ### 3.1. End-to-End Document Parsing & AI-Ready Converters
 
 1. **MinerU (`opendatalab/MinerU`):**
-   - **Repository:** `github.com/opendatalab/MinerU`
+   - **Repository:** `github.com/opendatalab/MinerU` (upstream 4.2.0)
    - **Capabilities:** Gold-standard open-source parser for raw, complex, and scanned academic/technical PDFs. Automatically performs layout analysis, strips running headers/footers/watermarks, extracts tables and LaTeX mathematical formulas, and outputs clean Markdown/JSON.
    - **CLI / Integration:** Native Python library and CLI (`magic-pdf`).
 

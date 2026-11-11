@@ -15,7 +15,7 @@ Use this skill whenever receiving requests regarding personal finance management
    - **Never** compute compound interest, loan amortizations, retirement projections, debt payoff months, or portfolio metrics in natural language.
    - **Always** execute the local CLI engine:
      ```bash
-     python C:/Users/<user>/.gemini/scripts/financial_calculator.py <subcommand> [flags]
+     python <HOME>/.gemini/scripts/financial_calculator.py <subcommand> [flags]
      ```
    - Quote exact numerical outputs from the deterministic engine.
 
@@ -48,7 +48,7 @@ Use this skill whenever receiving requests regarding personal finance management
 ### SOP A: Expense Reduction & Cashflow Defense
 1. **Audit Waterfall & Budget Health:**
    ```bash
-   python C:/Users/<user>/.gemini/scripts/financial_calculator.py waterfall-audit \
+   python <HOME>/.gemini/scripts/financial_calculator.py waterfall-audit \
      --monthly-income <NET_INCOME> \
      --monthly-expenses <LIVING_EXPENSES> \
      --emergency-fund <CASH> \
@@ -58,7 +58,7 @@ Use this skill whenever receiving requests regarding personal finance management
 2. **Impulse Purchase Evaluation (Life Energy Conversion):**
    When the user considers a significant purchase, calculate the real hours of life traded:
    ```bash
-   python C:/Users/<user>/.gemini/scripts/financial_calculator.py life-energy \
+   python <HOME>/.gemini/scripts/financial_calculator.py life-energy \
      --price <PRICE> \
      --gross-income <INCOME> \
      --period monthly \
@@ -69,7 +69,7 @@ Use this skill whenever receiving requests regarding personal finance management
 
 3. **Debt Payoff Plan (Avalanche vs Snowball):**
    ```bash
-   python C:/Users/<user>/.gemini/scripts/financial_calculator.py debt-payoff \
+   python <HOME>/.gemini/scripts/financial_calculator.py debt-payoff \
      --debts-json '[{"name": "Card A", "balance": 15000000, "rate": 24.0, "min_payment": 600000}, {"name": "Paylater B", "balance": 4000000, "rate": 36.0, "min_payment": 400000}]' \
      --extra-budget <EXTRA_MONTHLY_CASH>
    ```
@@ -95,7 +95,7 @@ Use this skill whenever receiving requests regarding personal finance management
 ### SOP C: Wealth Building, Retirement & Safe Withdrawal Rates
 1. **Compound Interest & Inflation-Adjusted Growth:**
    ```bash
-   python C:/Users/<user>/.gemini/scripts/financial_calculator.py compound \
+   python <HOME>/.gemini/scripts/financial_calculator.py compound \
      --principal <INITIAL_INVESTMENT> \
      --rate <ANNUAL_RETURN_PCT> \
      --years <YEARS> \
@@ -106,7 +106,7 @@ Use this skill whenever receiving requests regarding personal finance management
 
 2. **Retirement Feasibility & Monte Carlo Simulation (Trinity 4% Rule):**
    ```bash
-   python C:/Users/<user>/.gemini/scripts/financial_calculator.py monte-carlo \
+   python <HOME>/.gemini/scripts/financial_calculator.py monte-carlo \
      --portfolio <PORTFOLIO_SIZE> \
      --annual-withdrawal <YEARLY_SPEND> \
      --years 30 \

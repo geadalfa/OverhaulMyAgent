@@ -1,13 +1,13 @@
 # REA (Reverse Engineer Anything) Architecture, Protocol & Agent Integration
 
 ## 1. System Identity & Overview
-- **Project:** REA (`morluto/rea`, Version 6.4.0) — [rea.tools](https://rea.tools/).
+- **Project:** REA (`morluto/rea`, installed 6.4.0; upstream 6.8.0) — [rea.tools](https://rea.tools/).
 - **Repository:** `https://github.com/morluto/rea`
 - **Core Directive:** Local-first, evidence-backed reverse engineering toolkit and Model Context Protocol (MCP) server. Bridges AI coding agents (Antigravity, Claude Code, Cursor, Gemini CLI) to disassemble, decompile, trace, and reconstruct software without original source code.
 - **Local Environment & Registry:**
   - Package: Globally installed via npm `rea-agents@6.4.0`.
-  - Executable: `C:\Users\<user>\AppData\Roaming\npm\rea.cmd` (Node.js runtime: `C:\Program Files\nodejs\node.exe`).
-  - MCP Entry Point: `C:\Users\<user>\AppData\Roaming\npm\node_modules\rea-agents\scripts\rea.mjs mcp`.
+  - Executable: `<HOME>\AppData\Roaming\npm\rea.cmd` (Node.js runtime: `C:\Program Files\nodejs\node.exe`).
+  - MCP Entry Point: `<HOME>\AppData\Roaming\npm\node_modules\rea-agents\scripts\rea.mjs mcp`.
   - MCP Registration: Registered as `rea` in `<HOME>/.gemini/config/mcp_config.json`.
   - Skill Directory: `<HOME>/.gemini/config/skills/reverse-engineer-anything\SKILL.md` (with deep guides in `references/`).
   - Diagnostics: Validated via `rea mcp doctor` (170 MCP tools, 6 prompt workflows, MCP protocol version 2025-11-25).
