@@ -1,7 +1,7 @@
 # UI UX Pro Max — Design Intelligence Skill Analysis
 
 Source: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill
-Version: skill 2.15.0 · CLI 2.5.0 · MIT · 147,623 stars / 15,620 forks (verified 2026-11-10)
+Version: skill 2.15.0 · CLI 2.5.0 · MIT · 147,636 stars / 15,621 forks (verified 2026-11-10)
 Homepage: https://uupm.cc · Indonesian README: `README.id.md`
 
 ## 1. What it is
