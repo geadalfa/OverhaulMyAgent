@@ -157,11 +157,12 @@ description: Use when <trigger conditions>. <What it produces.>
 
 ## Step 7.5 — Backup to GDrive & report
 
-Setiap kali menambah atau mengubah knowledge doc/INDEX:
-1. Jalankan `node ~/.qoder/sync/qoder-sync.mjs export`.
-2. Baca `REPORT.md` di folder backup Google Drive.
-3. Laporkan di chat: status export, path backup, dan waktu.
+Setiap kali menambah atau mengubah **aset portabel apa pun** — knowledge doc/INDEX, memory, skills, tools, MCP, plugins, hooks, atau settings:
+1. Jalankan `node ~/.qoder/sync/qoder-sync.mjs export` di turn yang sama.
+2. Baca `REPORT.md` dan `~/.qoder/logs/qoder-export-status.json` di folder backup.
+3. Laporkan di chat: status export, path backup, waktu, dan file utama yang berubah.
 4. Jika export gagal, laporkan error dan jangan klaim backup berhasil.
+5. Jangan hanya mengandalkan Stop hook/LaunchAgent; itu safety net.
 
 ## Step 8 — Report
 
