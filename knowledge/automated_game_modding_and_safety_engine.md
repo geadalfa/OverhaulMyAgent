@@ -165,3 +165,40 @@ When requested to customize or live-tune mods in-game:
 2. **Scacchi (2010)**: *"Computer Game Mods, Modders, Modding, and the Mod Scene"*, University of California, Irvine. Formalizes closed-source software extension patterns, asset redirection hooks, and domain-specific scripting bindings.
 3. **Wang et al. (2023)**: *"Voyager: An Open-Ended Embodied Agent with Large Language Models"*, arXiv:2305.16291. Seminal benchmark demonstrating how LLM agents write, verify, and persist executable game modification skills with feedback loops.
 4. **Gregory (2018)**: *"Game Engine Architecture"*, 3rd Edition, CRC Press. Foundational reference on Virtual File Systems (VFS), runtime resource loading, DLL hook injection, and dynamic scripting bindings.
+
+
+---
+
+## 8. Cyberpunk 2077 Engine Modding Quirks, REDscript Invariants & RadioExt FMOD Protocol
+
+### 8.1. REDscript Compilation & Hotfix Staging Invariants
+- **Compiler Mechanism (`scc.exe`)**:
+  Cyberpunk's REDscript compiler compiles `.reds` files in `r6/scripts/` along with RED4ext plugin scripts into `r6/cache/final.redscripts.modded`.
+  If any type or function is unresolved, `scc.exe` halts and invokes `MessageBoxW` with *"REDscript compilation has failed"*, causing scripts to be ignored on game boot.
+- **Hotfix vs. Base Mod Pitfall**:
+  Nexus mod authors frequently upload hotfixes (e.g. `RPO 3.0 HOTFIX - SlowMo-Related Crash`) as `MAIN` files containing only single patched scripts (`RPO_DeathRagdoll.reds`).
+  **Invariant**: Never deploy a hotfix in isolation. Always ensure the complete base framework (e.g., 130 files of RPO 3.0 BETA) is staged and deployed first, followed by the hotfix override patch.
+- **Recursive Dependency Chains**:
+  UI & config overhaul mods like `NightCityTrafficOverhaul` (NCTO) require `RedscriptConfigFramework` (RCF, mod 30726).
+  RCF in turn requires `RedFunctions` (mod 32312) for core JSON parsing (`JsonMap`), storage routines, and system bridges. All must be present for clean compilation.
+
+### 8.2. RadioExt Custom Audio & FMOD Streaming Protocol
+- **FMOD Engine Limitation (`FMOD_ERR_HTTP`)**:
+  The embedded FMOD Core engine in `RadioExt.dll` / `fmod.dll` handles stream decoding. Its internal network client does not negotiate modern TLS/HTTPS certificates on arbitrary hostnames and fails on HTTP 301/302 redirects, throwing `getOpenState: A HTTP error occurred`.
+- **Icecast Direct Port 8000 Requirement**:
+  When integrating live web radio streams (e.g., GTA San Andreas stations from `gtaradio.net`), standard HTTPS URLs (`https://audio.gtaradio.net/sa/k-rose`) will fail with zero sound.
+  Instead, bind directly to the raw, unencrypted Icecast 2.4.4 HTTP port:
+  ```json
+  "streamInfo": {
+      "streamURL": "http://audio.gtaradio.net:8000/sa/k-rose",
+      "isStream": true
+  }
+  ```
+  Direct port 8000 returns HTTP 200 `audio/mpeg` with no redirects, allowing FMOD to buffer and stream flawlessly.
+
+### 8.3. Night City Population Scheduling & AI Panic Despawn Dynamics
+- **In-Game Community Schedule (00:00 - 05:00)**:
+  CDPR's vanilla crowd scheduler drastically reduces civilian pedestrian density by ~70%-80% between midnight and 5:00 AM (specifically 3:00 AM) to simulate night-time sleeping. Streets naturally appear deserted.
+  Peak crowd density occurs at 12:00 - 18:00 (midday). Skipping in-game time via the pause menu immediately restores bustling crowds.
+- **Combat Panic Despawn Trigger**:
+  Mods like `NightCityAlive` and `reinforcements_gangvgang` introduce active gang warfare. When gunfire breaks out, the engine's civilian AI triggers the *"Panic and Flee"* state. Pedestrians run away and are rapidly despawned by the engine to conserve AI thread ticks, which can make nearby intersections feel abruptly empty.

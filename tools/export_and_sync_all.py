@@ -43,15 +43,15 @@ def main():
         res_gd = subprocess.run([sys.executable, EXPORT_BUNDLE_PY], capture_output=False)
         if res_gd.returncode == 0:
             gdrive_success = True
-            print(f"  {GREEN}[✓] Google Drive backup refreshed.{RESET}")
+            print(f"  {GREEN}[✓] Backup Google Drive berhasil diperbarui.{RESET}")
         else:
-            print(f"  {YELLOW}[!] export_gemi_bundle.py exited with code {res_gd.returncode}{RESET}")
+            print(f"  {YELLOW}[!] export_gemi_bundle.py keluar dengan kode {res_gd.returncode}{RESET}")
     elif sys.platform == "darwin" and os.path.exists(EXPORT_CONFIG_SH):
         print(f"  -> Menjalankan {os.path.basename(EXPORT_CONFIG_SH)}...")
         res_sh = subprocess.run(["bash", EXPORT_CONFIG_SH], capture_output=False)
         if res_sh.returncode == 0:
             gdrive_success = True
-            print(f"  {GREEN}[✓] Google Drive backup refreshed via Bash.{RESET}")
+            print(f"  {GREEN}[✓] Backup Google Drive berhasil diperbarui via Bash.{RESET}")
 
     # 2. Pipeline B: Public Zero-PII GitHub Sync (OverhaulMyAgent)
     print(f"\n{BOLD}[2/2] Menyinkronkan Repositori OverhaulMyAgent ke GitHub (Zero-PII)...{RESET}")
@@ -61,18 +61,18 @@ def main():
         res_gh = subprocess.run([sys.executable, SYNC_GITHUB_PY], capture_output=False)
         if res_gh.returncode == 0:
             github_success = True
-            print(f"  {GREEN}[✓] OverhaulMyAgent GitHub updated and verified.{RESET}")
+            print(f"  {GREEN}[✓] GitHub OverhaulMyAgent berhasil diperbarui & diverifikasi.{RESET}")
         else:
-            print(f"  {YELLOW}[!] sync_overhaul_github.py exited with code {res_gh.returncode}{RESET}")
+            print(f"  {YELLOW}[!] sync_overhaul_github.py keluar dengan kode {res_gh.returncode}{RESET}")
     else:
-        print(f"  {YELLOW}[!] Script {SYNC_GITHUB_PY} not found.{RESET}")
+        print(f"  {YELLOW}[!] Script {SYNC_GITHUB_PY} tidak ditemukan.{RESET}")
 
     # Summary
     print(f"\n{BOLD}{CYAN}=================================================================={RESET}")
-    print(f"{BOLD}{CYAN}  DUAL-PIPELINE SYNC RESULT                     {RESET}")
+    print(f"{BOLD}{CYAN}  HASIL SINKRONISASI DUA JALUR (DUAL-PIPELINE)                     {RESET}")
     print(f"{BOLD}{CYAN}=================================================================={RESET}")
-    print(f"  - Pipeline Google Drive (Private Full) : {'[✓] SUCCESS' if gdrive_success else '[!] CHECK LOG'}")
-    print(f"  - Pipeline GitHub (OverhaulMyAgent)    : {'[✓] SUCCESS' if github_success else '[!] CHECK LOG'}")
+    print(f"  - Pipeline Google Drive (Private Full) : {'[✓] BERHASIL' if gdrive_success else '[!] CEK LOG'}")
+    print(f"  - Pipeline GitHub (OverhaulMyAgent)    : {'[✓] BERHASIL' if github_success else '[!] CEK LOG'}")
     print(f"{BOLD}{CYAN}=================================================================={RESET}\n")
 
 
