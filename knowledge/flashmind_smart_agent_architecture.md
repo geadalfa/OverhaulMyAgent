@@ -1,6 +1,6 @@
 # Flashmind Smart Agent Architecture: Gemini 3.8 Flash Persistent Memory & Anti-Hallucination Engine
 
-> **Reference Repository:** [Hvftpie13/Flashmind_Gemini-3.8-Flash_Smart-agent](https://github.com/Hvftpie13/Flashmind_Gemini-3.8-Flash_Smart-agent)  
+> **Reference Repository:** [Hvftpie13/Flashmind_Gemini-3.8-Flash_Smart-agent](https://github.com/Hvftpie13/Flashmind_Gemini-3.8-Flash_Smart-agent) (upstream v1.1.0)  
 > **Permanent Local Path:** `<HOME>\.gemini\flashmind`  
 > **Engram Engine:** `<HOME>\.gemini\bin\engram.exe` (`v3.6.0`, database at `~/.engram/engram.db`)  
 > **Flashmind Fallback Engine:** `<HOME>\.gemini\flashmind\server\index.js` (database at `~/.flashmind/memory.json`)

@@ -33,11 +33,7 @@
         "--jira-personal-token",
         "YOUR_TOKEN_HERE",
         "--no-jira-ssl-verify"
-      ],
-      "env": {
-        "JIRA_PERSONAL_TOKEN": "YOUR_JIRA_PERSONAL_TOKEN_HERE",
-        "JIRA_URL": "YOUR_JIRA_URL_HERE"
-      }
+      ]
     },
     "confluence": {
       "command": "uvx",
