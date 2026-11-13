@@ -1,9 +1,9 @@
 # Flashmind Smart Agent Architecture: Gemini 3.8 Flash Persistent Memory & Anti-Hallucination Engine
 
 > **Reference Repository:** [Hvftpie13/Flashmind_Gemini-3.8-Flash_Smart-agent](https://github.com/Hvftpie13/Flashmind_Gemini-3.8-Flash_Smart-agent) (upstream v1.1.0)  
-> **Permanent Local Path:** `C:\Users\<user>\.gemini\flashmind`  
-> **Engram Engine:** `C:\Users\<user>\.gemini\bin\engram.exe` (`v3.6.0`, database at `~/.engram/engram.db`)  
-> **Flashmind Fallback Engine:** `C:\Users\<user>\.gemini\flashmind\server\index.js` (database at `~/.flashmind/memory.json`)
+> **Permanent Local Path:** `<HOME>\.gemini\flashmind`  
+> **Engram Engine:** `<HOME>\.gemini\bin\engram.exe` (`v3.6.0`, database at `~/.engram/engram.db`)  
+> **Flashmind Fallback Engine:** `<HOME>\.gemini\flashmind\server\index.js` (database at `~/.flashmind/memory.json`)
 
 ---
 
@@ -41,8 +41,8 @@ flowchart TD
 
 ### 2.1. Engram Primary Engine (`engram.exe`)
 - **Backend:** Go-based SQLite engine with FTS5 keyword indexing, vector search, and conflict detection.
-- **Location:** `C:\Users\<user>\.gemini\bin\engram.exe`.
-- **Database:** `C:\Users\<user>\.engram\engram.db`.
+- **Location:** `<HOME>\.gemini\bin\engram.exe`.
+- **Database:** `<HOME>\.engram\engram.db`.
 - **Primary MCP Tools (23 tools in `--tools=agent` profile):**
   - `mem_context`: Fetches recent and high-priority observations across projects.
   - `mem_search`: FTS5 search across all past observations.
@@ -64,8 +64,8 @@ flowchart TD
 
 ### 2.2. Flashmind Fallback Engine (`server/index.js`)
 - **Backend:** Zero-dependency Node.js MCP server using BM25-lite keyword ranking and atomic file writing.
-- **Location:** `C:\Users\<user>\.gemini\flashmind\server\index.js`.
-- **Database:** `C:\Users\<user>\.flashmind\memory.json`.
+- **Location:** `<HOME>\.gemini\flashmind\server\index.js`.
+- **Database:** `<HOME>\.flashmind\memory.json`.
 - **Tools:** `memory_context`, `memory_search`, `memory_save`, `memory_get`, `memory_list`, `memory_update`, `memory_delete`, `memory_verify`.
 - **Invariant:** When Engram is active, observations are saved primarily to Engram to prevent duplicate storage.
 
