@@ -6,10 +6,10 @@
 - **Core Directive:** Local-first, evidence-backed reverse engineering toolkit and Model Context Protocol (MCP) server. Bridges AI coding agents (Antigravity, Claude Code, Cursor, Gemini CLI) to disassemble, decompile, trace, and reconstruct software without original source code.
 - **Local Environment & Registry:**
   - Package: Globally installed via npm `rea-agents@6.4.0`.
-  - Executable: `<HOME>\AppData\Roaming\npm\rea.cmd` (Node.js runtime: `C:\Program Files\nodejs\node.exe`).
-  - MCP Entry Point: `<HOME>\AppData\Roaming\npm\node_modules\rea-agents\scripts\rea.mjs mcp`.
-  - MCP Registration: Registered as `rea` in `<HOME>/.gemini/config/mcp_config.json`.
-  - Skill Directory: `<HOME>/.gemini/config/skills/reverse-engineer-anything\SKILL.md` (with deep guides in `references/`).
+  - Executable: `C:\Users\<user>\AppData\Roaming\npm\rea.cmd` (Node.js runtime: `C:\Program Files\nodejs\node.exe`).
+  - MCP Entry Point: `C:\Users\<user>\AppData\Roaming\npm\node_modules\rea-agents\scripts\rea.mjs mcp`.
+  - MCP Registration: Registered as `rea` in `C:\Users\<user>/.gemini/config/mcp_config.json`.
+  - Skill Directory: `C:\Users\<user>/.gemini/config/skills/reverse-engineer-anything\SKILL.md` (with deep guides in `references/`).
   - Diagnostics: Validated via `rea mcp doctor` (170 MCP tools, 6 prompt workflows, MCP protocol version 2025-11-25).
   - Windows Execution Invariant: PowerShell execution policies block `rea.ps1`. When executing CLI commands in scripts/terminals, invoke via `cmd /c rea <args>` or `node <script_path> <args>`.
 
